@@ -36,6 +36,42 @@
                     <view key="view" contentMode="scaleToFill" id="6Bf-Or-AkX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HomeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="6Ac-1v-SyM">
+                                <rect key="frame" x="16" y="28" width="60" height="60"/>
+                                <color key="tintColor" red="0.63921570780000003" green="0.1215686277" blue="0.2039215714" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100 total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDk-dX-yc8">
+                                <rect key="frame" x="35" y="142" width="200" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Questions Answered" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TN4-CK-jqr">
+                                <rect key="frame" x="35" y="113" width="200" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100 days" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEX-fI-seA">
+                                <rect key="frame" x="35" y="241" width="200" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SurveyApp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYZ-nU-pzc">
+                                <rect key="frame" x="84" y="28" width="303" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current streak" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LdZ-sx-AMO">
+                                <rect key="frame" x="35" y="212" width="200" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.63921570780000003" green="0.1215686277" blue="0.2039215714" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.63921570780000003" green="0.1215686277" blue="0.2039215714" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -521,7 +557,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="True" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85N-bc-d1U">
-                                                    <rect key="frame" x="8" y="11" width="33" height="21"/>
+                                                    <rect key="frame" x="8" y="11" width="560" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="TSh-7Z-8g3"/>
                                                     </constraints>
@@ -533,6 +569,7 @@
                                             <constraints>
                                                 <constraint firstItem="85N-bc-d1U" firstAttribute="top" secondItem="zB2-FZ-hbU" secondAttribute="topMargin" constant="3" id="eP8-cB-Nt9"/>
                                                 <constraint firstItem="85N-bc-d1U" firstAttribute="leading" secondItem="zB2-FZ-hbU" secondAttribute="leadingMargin" id="jyM-Qe-izC"/>
+                                                <constraint firstItem="85N-bc-d1U" firstAttribute="trailing" secondItem="zB2-FZ-hbU" secondAttribute="trailingMargin" id="ugt-X0-wzM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -542,7 +579,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="False" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hA-CZ-jK5">
-                                                    <rect key="frame" x="8" y="11" width="41" height="21"/>
+                                                    <rect key="frame" x="8" y="11" width="560" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="XR3-xu-MXP"/>
                                                     </constraints>
@@ -554,6 +591,7 @@
                                             <constraints>
                                                 <constraint firstItem="0hA-CZ-jK5" firstAttribute="leading" secondItem="VRX-RC-LlW" secondAttribute="leadingMargin" id="7Wd-ef-57T"/>
                                                 <constraint firstItem="0hA-CZ-jK5" firstAttribute="top" secondItem="VRX-RC-LlW" secondAttribute="topMargin" constant="3" id="irF-p6-YSu"/>
+                                                <constraint firstItem="0hA-CZ-jK5" firstAttribute="trailing" secondItem="VRX-RC-LlW" secondAttribute="trailingMargin" id="r5b-QU-tPf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -575,4 +613,7 @@
             <point key="canvasLocation" x="1011" y="741"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="HomeLogo" width="60" height="60"/>
+    </resources>
 </document>
