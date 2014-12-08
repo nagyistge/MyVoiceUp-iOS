@@ -45,12 +45,12 @@ func ==(lhs: Question, rhs: Question) -> Bool {
 }
 
 class QTextChoice : Question {
-    var choices = NSArray()
+    var choices = [String]()
     
     override init(json: JSON) {
         super.init(json: json)
+        choices = json["choices"].arrayValue.map{$0.stringValue}
     }
-    
 }
 
 

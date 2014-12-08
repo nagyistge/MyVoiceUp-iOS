@@ -50,7 +50,7 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
     
     func makeQuestionViewController(question: Question)  -> QuestionViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("QuestionViewConroller") as QuestionViewController
+        let vc = storyboard.instantiateViewControllerWithIdentifier("QTextChoicesViewConroller") as QuestionViewController
         vc.question = question
         vc.delegate = self
         return vc
