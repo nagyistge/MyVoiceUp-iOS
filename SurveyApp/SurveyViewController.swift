@@ -65,6 +65,10 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
             self.pageViewController!.setViewControllers([vc], direction: .Forward, animated: true, completion: {done in })
         }
     }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
 
 }
 
