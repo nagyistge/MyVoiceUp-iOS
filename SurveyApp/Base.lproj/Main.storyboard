@@ -200,6 +200,125 @@
             </objects>
             <point key="canvasLocation" x="-487" y="1713"/>
         </scene>
+        <!--Audio View Controller-->
+        <scene sceneID="8fJ-td-6RU">
+            <objects>
+                <viewController storyboardIdentifier="QAudioViewConroller" id="csi-Wp-RaE" customClass="QAudioViewController" customModule="SurveyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Aq5-7T-h8g"/>
+                        <viewControllerLayoutGuide type="bottom" id="ewB-HM-orY"/>
+                    </layoutGuides>
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="vGE-Q1-OuK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akz-2v-a17">
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0I-xT-6kq">
+                                        <rect key="frame" x="542" y="518" width="50" height="30"/>
+                                        <state key="normal" title="Next ➞">
+                                            <color key="titleColor" red="0.63921570780000003" green="0.1215686277" blue="0.2039215714" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.92877810849999998" green="0.1760839763" blue="0.30215207150000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="nextButtonUp:" destination="csi-Wp-RaE" eventType="touchUpInside" id="8uA-Kf-MVe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlH-vt-6PM">
+                                        <rect key="frame" x="16" y="518" width="55" height="30"/>
+                                        <state key="normal" title="← Back">
+                                            <color key="titleColor" red="0.63921570780000003" green="0.1215686277" blue="0.2039215714" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.92877810849999998" green="0.1760839763" blue="0.30215207150000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMQ-7g-eRw">
+                                        <rect key="frame" x="43" y="38" width="50" height="30"/>
+                                        <state key="normal" title="Record">
+                                            <color key="titleColor" red="0.63921570780000003" green="0.1215686277" blue="0.2039215714" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="disabled">
+                                            <color key="titleColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="recordTouchUp:" destination="csi-Wp-RaE" eventType="touchUpInside" id="pN4-tc-9MQ"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ae-MY-Auz">
+                                        <rect key="frame" x="192" y="42" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7K-D0-oBF">
+                                        <rect key="frame" x="128" y="38" width="30" height="30"/>
+                                        <state key="normal" title="Play">
+                                            <color key="titleColor" red="0.63921570780000003" green="0.1215686277" blue="0.2039215714" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="disabled">
+                                            <color key="titleColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playTouchUo:" destination="csi-Wp-RaE" eventType="touchUpInside" id="8Sk-PM-htI"/>
+                                        </connections>
+                                    </button>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7GG-Mh-d6Q">
+                                        <rect key="frame" x="43" y="22" width="191" height="2"/>
+                                        <color key="tintColor" red="0.40000000600000002" green="0.69411766529999996" blue="0.19607843459999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="progressTintColor" red="0.40000000600000002" green="0.69411766529999996" blue="0.19607843459999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="trackTintColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                    </progressView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="O0I-xT-6kq" secondAttribute="trailing" constant="8" id="32H-Zz-fLd"/>
+                                    <constraint firstItem="qlH-vt-6PM" firstAttribute="leading" secondItem="akz-2v-a17" secondAttribute="leading" constant="16" id="Y6c-Dw-cVd"/>
+                                    <constraint firstAttribute="bottom" secondItem="O0I-xT-6kq" secondAttribute="bottom" constant="8" id="aKV-y6-N0s"/>
+                                    <constraint firstAttribute="bottom" secondItem="qlH-vt-6PM" secondAttribute="bottom" constant="8" id="yXS-o7-kdC"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sample Question 1, 2, 3" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="U2k-oO-sNu">
+                                <rect key="frame" x="20" y="20" width="560" height="16.5"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.63921570780000003" green="0.1215686277" blue="0.2039215714" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="U2k-oO-sNu" firstAttribute="leading" secondItem="vGE-Q1-OuK" secondAttribute="leading" constant="20" symbolic="YES" id="Bxj-xb-m1A"/>
+                            <constraint firstItem="U2k-oO-sNu" firstAttribute="top" secondItem="vGE-Q1-OuK" secondAttribute="top" constant="20" symbolic="YES" id="Pq0-ET-SqG"/>
+                            <constraint firstAttribute="trailing" secondItem="U2k-oO-sNu" secondAttribute="trailing" constant="20" symbolic="YES" id="Qdz-5X-I1b"/>
+                            <constraint firstAttribute="trailing" secondItem="akz-2v-a17" secondAttribute="trailing" id="TmD-i7-ODl"/>
+                            <constraint firstItem="akz-2v-a17" firstAttribute="top" secondItem="U2k-oO-sNu" secondAttribute="bottom" constant="8" symbolic="YES" id="awz-Yk-h3G"/>
+                            <constraint firstItem="akz-2v-a17" firstAttribute="leading" secondItem="vGE-Q1-OuK" secondAttribute="leading" id="f8x-xc-TH7"/>
+                            <constraint firstItem="ewB-HM-orY" firstAttribute="top" secondItem="akz-2v-a17" secondAttribute="bottom" id="kur-Vc-e07"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="qlH-vt-6PM" id="mzh-r3-xkE"/>
+                        <outlet property="dataLabel" destination="U2k-oO-sNu" id="qU9-xk-mu2"/>
+                        <outlet property="nextButton" destination="O0I-xT-6kq" id="W8c-mL-jAO"/>
+                        <outlet property="playButton" destination="i7K-D0-oBF" id="U5D-na-nxh"/>
+                        <outlet property="recordButton" destination="KMQ-7g-eRw" id="lNE-1u-ZmH"/>
+                        <outlet property="recordTimeLabel" destination="5ae-MY-Auz" id="5UM-jR-soa"/>
+                        <outlet property="volumeProgress" destination="7GG-Mh-d6Q" id="ysn-zg-DyN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fyF-00-TUs" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="180" y="2033"/>
+        </scene>
         <!--Bool View Controller-->
         <scene sceneID="sPx-Ns-cbz">
             <objects>

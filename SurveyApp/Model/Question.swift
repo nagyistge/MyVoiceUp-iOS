@@ -34,6 +34,9 @@ class Question: Equatable {
             case .TextChoices:
                 println("TextChoices")
                 return QTextChoice(json: json)
+            case .AudioRecording:
+                println("AudioRecording")
+                return QAudioRecording(json: json)
             default:
                 println("FIXME: not handled yet")
             }
@@ -59,5 +62,9 @@ class QTextChoice : Question {
 class QBoolChoice: Question {
     var trueChoice = "Yes"
     var falseChoice = "No"
+    
+}
+
+class QAudioRecording: Question {
     
 }
