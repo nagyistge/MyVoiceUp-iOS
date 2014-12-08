@@ -15,6 +15,7 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
     
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var lblHeader: UILabel!
+    @IBOutlet weak var questionProgress: UIProgressView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,7 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
         let vc = makeQuestionViewController(q)
         let viewControllers = [vc]
         self.pageViewController!.setViewControllers(viewControllers, direction: .Forward, animated: false, completion: {done in })
+        setProgress(0)
 
         self.addChildViewController(self.pageViewController!)
         self.container.addSubview(self.pageViewController!.view)
@@ -63,6 +65,11 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
         vc.delegate = self
         return vc
     }
+        
+    func setProgress(questionIndex: Int) {
+        questionProgress.progress = (Float(questionIndex)) / Float(survey.questions.count)
+        lblHeader.text = "Question \(questionIndex + 1)"
+    }
     
     // MARK: - QuestionViewController delegate methods
     func questionViewController(questionViewController: QuestionViewController, finishedQuestion:Question) {
@@ -71,8 +78,10 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
         if (idx + 1 < survey.questions.count) {
             let vc = makeQuestionViewController(survey.questions[idx+1])
             self.pageViewController!.setViewControllers([vc], direction: .Forward, animated: true, completion: {done in })
+            self.setProgress(idx + 1)
         }
     }
+
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
