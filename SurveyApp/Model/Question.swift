@@ -28,6 +28,9 @@ class Question: Equatable {
         //fixme: validate quesion?
         if let qtype = QuestionType(rawValue: json["question_type"].stringValue) {
             switch qtype {
+            case .Boolean:
+                println("Boolean")
+                return QBoolChoice(json: json)
             case .TextChoices:
                 println("TextChoices")
                 return QTextChoice(json: json)
@@ -53,4 +56,8 @@ class QTextChoice : Question {
     }
 }
 
-
+class QBoolChoice: Question {
+    var trueChoice = "Yes"
+    var falseChoice = "No"
+    
+}

@@ -19,6 +19,7 @@
 		E9B24AE71A32446200903FEE /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24AE61A32446200903FEE /* Survey.swift */; };
 		E9B24AEF1A34C49E00903FEE /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24AEE1A34C49E00903FEE /* DataStore.swift */; };
 		E9B24AF11A3516B400903FEE /* QTextChoicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24AF01A3516B400903FEE /* QTextChoicesViewController.swift */; };
+		E9B24AF31A36080C00903FEE /* QBoolViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24AF21A36080C00903FEE /* QBoolViewContoller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		E9B24AE61A32446200903FEE /* Survey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Survey.swift; path = SurveyApp/Model/Survey.swift; sourceTree = "<group>"; };
 		E9B24AEE1A34C49E00903FEE /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataStore.swift; path = SurveyApp/Model/DataStore.swift; sourceTree = "<group>"; };
 		E9B24AF01A3516B400903FEE /* QTextChoicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QTextChoicesViewController.swift; sourceTree = "<group>"; };
+		E9B24AF21A36080C00903FEE /* QBoolViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QBoolViewContoller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				E9B24AAE1A2FBD9000903FEE /* AppDelegate.swift */,
 				E9B24AB01A2FBD9000903FEE /* SurveyViewController.swift */,
 				E9B24AB21A2FBD9000903FEE /* QuestionViewController.swift */,
+				E9B24AF21A36080C00903FEE /* QBoolViewContoller.swift */,
 				E9B24AF01A3516B400903FEE /* QTextChoicesViewController.swift */,
 				E9B24AB61A2FBD9000903FEE /* Main.storyboard */,
 				E9B24AB91A2FBD9000903FEE /* Images.xcassets */,
@@ -301,6 +304,7 @@
 				E9B24AB11A2FBD9000903FEE /* SurveyViewController.swift in Sources */,
 				E9B24AE71A32446200903FEE /* Survey.swift in Sources */,
 				E9B24AB31A2FBD9000903FEE /* QuestionViewController.swift in Sources */,
+				E9B24AF31A36080C00903FEE /* QBoolViewContoller.swift in Sources */,
 				E9B24AAF1A2FBD9000903FEE /* AppDelegate.swift in Sources */,
 				E9B24AF11A3516B400903FEE /* QTextChoicesViewController.swift in Sources */,
 			);
