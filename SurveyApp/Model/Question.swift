@@ -12,7 +12,7 @@ import SwiftyJSON
 enum QuestionType : String {
     case Boolean = "boolean"
     case TextChoices = "text_choices"
-    case ImageChoices = "image_choces"
+    case ImageChoices = "image_choices"
     case AudioRecording = "audio_recording"
     case Range = "range"
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E92B102A1A363ABA005BFDFE /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92B10291A363ABA005BFDFE /* MediaPlayer.framework */; };
+		E92B102C1A364F9F005BFDFE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92B102B1A364F9F005BFDFE /* HomeViewController.swift */; };
 		E9B24AAF1A2FBD9000903FEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24AAE1A2FBD9000903FEE /* AppDelegate.swift */; };
 		E9B24AB11A2FBD9000903FEE /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24AB01A2FBD9000903FEE /* SurveyViewController.swift */; };
 		E9B24AB31A2FBD9000903FEE /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24AB21A2FBD9000903FEE /* QuestionViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		E92B10291A363ABA005BFDFE /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		E92B102B1A364F9F005BFDFE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E9B24AA91A2FBD9000903FEE /* SurveyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurveyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B24AAD1A2FBD9000903FEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9B24AAE1A2FBD9000903FEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				E9B24AD21A32202A00903FEE /* Model */,
 				E9B24AAE1A2FBD9000903FEE /* AppDelegate.swift */,
 				E9B24AB01A2FBD9000903FEE /* SurveyViewController.swift */,
+				E92B102B1A364F9F005BFDFE /* HomeViewController.swift */,
 				E9B24AB21A2FBD9000903FEE /* QuestionViewController.swift */,
 				E9B24AF41A361EF600903FEE /* QAudioViewController.swift */,
 				E9B24AF21A36080C00903FEE /* QBoolViewContoller.swift */,
@@ -285,6 +288,7 @@
 				E9B24AF51A361EF600903FEE /* QAudioViewController.swift in Sources */,
 				E9B24AAF1A2FBD9000903FEE /* AppDelegate.swift in Sources */,
 				E9B24AF11A3516B400903FEE /* QTextChoicesViewController.swift in Sources */,
+				E92B102C1A364F9F005BFDFE /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

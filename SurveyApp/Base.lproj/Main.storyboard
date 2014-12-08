@@ -28,7 +28,7 @@
         <!--Home-->
         <scene sceneID="oHC-bW-7tk">
             <objects>
-                <viewController id="EjP-hB-v2z" sceneMemberID="viewController">
+                <viewController id="EjP-hB-v2z" customClass="HomeViewController" customModule="SurveyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bxx-Ca-4cn"/>
                         <viewControllerLayoutGuide type="bottom" id="uI6-CY-Qyy"/>
