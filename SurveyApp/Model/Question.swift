@@ -37,6 +37,9 @@ class Question: Equatable {
             case .AudioRecording:
                 println("AudioRecording")
                 return QAudioRecording(json: json)
+            case .Range:
+                println("Range")
+                return QRange(json: json)
             default:
                 println("FIXME: not handled yet")
             }
@@ -67,4 +70,26 @@ class QBoolChoice: Question {
 
 class QAudioRecording: Question {
     
+}
+
+class QRange: Question {
+    var rangeMin: NSNumber = 0
+    var rangeMax: NSNumber = 1
+    var rangeStep: NSNumber = 0.1
+    
+    override init(json: JSON) {
+        super.init(json: json)
+        
+        if let v = json["range_min"].number {
+            rangeMin = v
+        }
+        
+        if let v = json["range_max"].number {
+            rangeMax = v
+        }
+        
+        if let v = json["range_step"].number {
+            rangeStep = v
+        }
+    }
 }
