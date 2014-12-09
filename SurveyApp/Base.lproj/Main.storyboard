@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EjP-hB-v2z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eoL-WT-ZDn">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="472" y="-580"/>
         </scene>
-        <!--Home-->
+        <!--Home View Controller-->
         <scene sceneID="oHC-bW-7tk">
             <objects>
                 <viewController id="EjP-hB-v2z" customClass="HomeViewController" customModule="SurveyApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,7 +37,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="6Ac-1v-SyM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="HomeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="6Ac-1v-SyM">
                                 <rect key="frame" x="16" y="28" width="60" height="60"/>
                                 <color key="tintColor" red="0.63921570780000003" green="0.1215686277" blue="0.2039215714" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -56,13 +56,13 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SurveyApp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYZ-nU-pzc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SurveyApp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYZ-nU-pzc">
                                 <rect key="frame" x="84" y="28" width="500" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="leP-eu-4ks">
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="leP-eu-4ks">
                                 <rect key="frame" x="16" y="96" width="568" height="496"/>
                                 <connections>
                                     <segue destination="3yK-Ia-dLk" kind="embed" id="2VU-ZW-uqH"/>
@@ -97,11 +97,11 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="iIT-nA-V2g"/>
+                    <navigationItem key="navigationItem" id="TGH-sE-IcP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQG-ie-HgS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1113" y="1085"/>
+            <point key="canvasLocation" x="-301" y="1085"/>
         </scene>
         <!--Home Table View Controller-->
         <scene sceneID="XSl-ub-lXy">
@@ -232,7 +232,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q3h-pU-vEd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-673" y="997"/>
+            <point key="canvasLocation" x="139" y="997"/>
         </scene>
         <!--Question View Controller-->
         <scene sceneID="snT-py-3hH">
@@ -312,7 +312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GmD-Rr-ZGN" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-487" y="1713"/>
+            <point key="canvasLocation" x="325" y="1713"/>
         </scene>
         <!--Audio View Controller-->
         <scene sceneID="8fJ-td-6RU">
@@ -521,7 +521,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="39J-5K-t5C" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="288" y="947"/>
+            <point key="canvasLocation" x="1100" y="947"/>
         </scene>
         <!--Text Choice View Controller-->
         <scene sceneID="0Ip-VQ-abv">
@@ -616,7 +616,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4AJ-4n-sGM" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="801" y="1661"/>
+            <point key="canvasLocation" x="1613" y="1661"/>
         </scene>
         <!--Bool Answer View Controller-->
         <scene sceneID="o6J-Nx-Glf">
@@ -688,7 +688,26 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yiY-aB-35u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1011" y="741"/>
+            <point key="canvasLocation" x="1823" y="741"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="Bnc-XO-NoE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="eoL-WT-ZDn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="iIT-nA-V2g"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f97-ad-yWi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EjP-hB-v2z" kind="relationship" relationship="rootViewController" id="h0x-k3-OsH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wgD-VS-uyn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1113" y="1085"/>
         </scene>
     </scenes>
     <resources>

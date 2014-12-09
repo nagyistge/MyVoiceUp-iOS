@@ -16,7 +16,7 @@ class HomeViewController : UIViewController {
 }
 
 
-class HomeTableViewController: UITableViewController, UITableViewDataSource {
+class HomeTableViewController: UITableViewController, UITableViewDataSource, SurveyViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,12 +67,14 @@ class HomeTableViewController: UITableViewController, UITableViewDataSource {
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewControllerWithIdentifier("Survey") as SurveyViewController
-//            vc.question = question
-//            vc.delegate = self
+            vc.delegate = self
             
-            self.presentViewController(vc, animated: true, completion: {done in})
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 
+    func surveyViewController(viewController: SurveyViewController, finishedSurvey: Survey) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
     
 }

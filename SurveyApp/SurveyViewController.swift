@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol SurveyViewControllerDelegate {
+    func surveyViewController(viewController: SurveyViewController, finishedSurvey: Survey)
+}
+
 class SurveyViewController: UIViewController, UIPageViewControllerDelegate, QuestionViewControllerDelegate {
 
     var pageViewController: UIPageViewController?
     var survey: Survey!
+    
+    var delegate: SurveyViewControllerDelegate?
     
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var lblHeader: UILabel!
@@ -81,6 +87,10 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
             let vc = makeQuestionViewController(survey.questions[idx+1])
             self.pageViewController!.setViewControllers([vc], direction: .Forward, animated: true, completion: {done in })
             self.setProgress(idx + 1)
+        } else if (idx + 1 == survey.questions.count) {
+            if let d = self.delegate {
+                d.surveyViewController(self, finishedSurvey: survey)
+            }
         }
     }
 
