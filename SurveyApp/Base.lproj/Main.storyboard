@@ -567,16 +567,36 @@
                                             <color key="titleColor" red="0.92877810849999998" green="0.1760839763" blue="0.30215207150000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="gRX-cm-6mf">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="gRX-cm-6mf">
                                         <rect key="frame" x="16" y="8" width="576" height="500"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextChoiceCell" id="dwa-dI-Dt2">
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextChoiceCell" rowHeight="60" id="dwa-dI-Dt2" customClass="QTextChoiceCell" customModule="SurveyApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="576" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dwa-dI-Dt2" id="4fG-tq-BbI">
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kgr-aG-B4j">
+                                                            <rect key="frame" x="8" y="11" width="560" height="42"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="42" id="hIU-N3-j6h"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="Kgr-aG-B4j" firstAttribute="top" secondItem="4fG-tq-BbI" secondAttribute="topMargin" constant="3" id="NpO-P4-i7d"/>
+                                                        <constraint firstItem="Kgr-aG-B4j" firstAttribute="leading" secondItem="4fG-tq-BbI" secondAttribute="leadingMargin" id="bQJ-2J-TLY"/>
+                                                        <constraint firstItem="Kgr-aG-B4j" firstAttribute="trailing" secondItem="4fG-tq-BbI" secondAttribute="trailingMargin" id="dhw-49-Bym"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="choiceLabel" destination="Kgr-aG-B4j" id="5oc-Ec-7nz"/>
+                                                    <outlet property="textLabel" destination="Kgr-aG-B4j" id="0zm-Ea-UmB"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>

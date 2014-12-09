@@ -21,12 +21,17 @@ class QTextChoiceViewController: QuestionViewController, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("TextChoiceCell") as UITableViewCell
-        cell.textLabel!.text = txtChoiceQ.choices[indexPath.row]
+        var cell = tableView.dequeueReusableCellWithIdentifier("TextChoiceCell") as QTextChoiceCell
+        
+        cell.choiceLabel?.text = txtChoiceQ.choices[indexPath.row]
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return txtChoiceQ.choices.count
     }
+}
+
+class QTextChoiceCell: UITableViewCell {
+    @IBOutlet weak var choiceLabel: UILabel!
 }
