@@ -100,10 +100,16 @@ class QAudioViewController: QuestionViewController, AVAudioRecorderDelegate {
         
         var apc0 = recorder.averagePowerForChannel(0)
         var peak0 = recorder.peakPowerForChannel(0)
-        println("Current readings: \(apc0), \(peak0)")
         
-        let curRatio = apc0 / -160.0;
+        let curRatio = 1.0 - apc0 / -160.0;
         volumeProgress.progress = curRatio
+        println("Current readings: \(apc0), \(peak0), \(curRatio)")
+        
+        if (curRatio > 0.9) {
+            volumeProgress.progressTintColor = UIColor.redColor()
+        } else {
+            volumeProgress.progressTintColor = UIColor.greenColor()
+        }
     }
     
     func generateSoundFileURL() -> NSURL {
