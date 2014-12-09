@@ -23,6 +23,7 @@ class QuestionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.dataLabel!.text = question.question_text
     }
     
     override func didReceiveMemoryWarning() {
@@ -31,7 +32,6 @@ class QuestionViewController: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-            self.dataLabel!.text = question.question_text
     }
 
     // MARK - Button Actions

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E92B102A1A363ABA005BFDFE /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92B10291A363ABA005BFDFE /* MediaPlayer.framework */; };
 		E92B102C1A364F9F005BFDFE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92B102B1A364F9F005BFDFE /* HomeViewController.swift */; };
+		E92B102E1A366A66005BFDFE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92B102D1A366A66005BFDFE /* QuartzCore.framework */; };
 		E9B24AAF1A2FBD9000903FEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24AAE1A2FBD9000903FEE /* AppDelegate.swift */; };
 		E9B24AB11A2FBD9000903FEE /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24AB01A2FBD9000903FEE /* SurveyViewController.swift */; };
 		E9B24AB31A2FBD9000903FEE /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24AB21A2FBD9000903FEE /* QuestionViewController.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		E92B10291A363ABA005BFDFE /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		E92B102B1A364F9F005BFDFE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E92B102D1A366A66005BFDFE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E9B24AA91A2FBD9000903FEE /* SurveyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurveyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B24AAD1A2FBD9000903FEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9B24AAE1A2FBD9000903FEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E92B102E1A366A66005BFDFE /* QuartzCore.framework in Frameworks */,
 				E92B102A1A363ABA005BFDFE /* MediaPlayer.framework in Frameworks */,
 				E9B24AF71A36225200903FEE /* AVFoundation.framework in Frameworks */,
 			);
@@ -89,6 +92,7 @@
 		E9B24AA01A2FBD9000903FEE = {
 			isa = PBXGroup;
 			children = (
+				E92B102D1A366A66005BFDFE /* QuartzCore.framework */,
 				E92B10291A363ABA005BFDFE /* MediaPlayer.framework */,
 				E9B24AAB1A2FBD9000903FEE /* SurveyApp */,
 				E9B24AC51A2FBD9000903FEE /* SurveyAppTests */,
