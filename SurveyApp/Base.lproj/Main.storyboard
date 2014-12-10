@@ -249,20 +249,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Feu-Wr-Oqi">
-                                <rect key="frame" x="0.0" y="38" width="568" height="458"/>
+                                <rect key="frame" x="0.0" y="36" width="568" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSw-UK-eeW">
-                                <rect key="frame" x="16" y="8" width="536" height="12"/>
+                                <rect key="frame" x="16" y="8" width="536" height="10"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="12" id="pi0-8E-c7v"/>
+                                    <constraint firstAttribute="height" constant="10" id="pi0-8E-c7v"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aQ1-tA-5Rj">
-                                <rect key="frame" x="16" y="28" width="536" height="2"/>
+                                <rect key="frame" x="16" y="26" width="536" height="2"/>
                                 <color key="backgroundColor" red="0.92877810849999998" green="0.1760839763" blue="0.30215207150000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="progressTintColor" red="0.98013239514857664" green="1" blue="0.98282923856093551" alpha="1" colorSpace="calibratedRGB"/>
