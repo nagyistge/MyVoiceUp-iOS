@@ -17,6 +17,7 @@
 		E96C64DD1A37CBC9008A8FDE /* sage_fatigue2.png in Resources */ = {isa = PBXBuildFile; fileRef = E96C64D81A37CBC9008A8FDE /* sage_fatigue2.png */; };
 		E96C64DE1A37CBC9008A8FDE /* sage_fatigue3.png in Resources */ = {isa = PBXBuildFile; fileRef = E96C64D91A37CBC9008A8FDE /* sage_fatigue3.png */; };
 		E96C64DF1A37CBC9008A8FDE /* sage_fatigue4.png in Resources */ = {isa = PBXBuildFile; fileRef = E96C64DA1A37CBC9008A8FDE /* sage_fatigue4.png */; };
+		E96C64E11A38B844008A8FDE /* typicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E96C64E01A38B844008A8FDE /* typicons.ttf */; };
 		E9B24AAF1A2FBD9000903FEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24AAE1A2FBD9000903FEE /* AppDelegate.swift */; };
 		E9B24AB11A2FBD9000903FEE /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24AB01A2FBD9000903FEE /* SurveyViewController.swift */; };
 		E9B24AB31A2FBD9000903FEE /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24AB21A2FBD9000903FEE /* QuestionViewController.swift */; };
@@ -57,6 +58,7 @@
 		E96C64D81A37CBC9008A8FDE /* sage_fatigue2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sage_fatigue2.png; path = ../../../../Downloads/sage_moodquestions/sage_fatigue2.png; sourceTree = "<group>"; };
 		E96C64D91A37CBC9008A8FDE /* sage_fatigue3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sage_fatigue3.png; path = ../../../../Downloads/sage_moodquestions/sage_fatigue3.png; sourceTree = "<group>"; };
 		E96C64DA1A37CBC9008A8FDE /* sage_fatigue4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sage_fatigue4.png; path = ../../../../Downloads/sage_moodquestions/sage_fatigue4.png; sourceTree = "<group>"; };
+		E96C64E01A38B844008A8FDE /* typicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = typicons.ttf; sourceTree = "<group>"; };
 		E9B24AA91A2FBD9000903FEE /* SurveyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurveyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B24AAD1A2FBD9000903FEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9B24AAE1A2FBD9000903FEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 		E9B24AAC1A2FBD9000903FEE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E96C64E01A38B844008A8FDE /* typicons.ttf */,
 				E96C64D61A37CBC9008A8FDE /* sage_fatigue0.png */,
 				E96C64D71A37CBC9008A8FDE /* sage_fatigue1.png */,
 				E96C64D81A37CBC9008A8FDE /* sage_fatigue2.png */,
@@ -290,6 +293,7 @@
 				E9B24AE31A322E5000903FEE /* Questions.json in Resources */,
 				E9B24ABD1A2FBD9000903FEE /* LaunchScreen.xib in Resources */,
 				E9B24ABA1A2FBD9000903FEE /* Images.xcassets in Resources */,
+				E96C64E11A38B844008A8FDE /* typicons.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

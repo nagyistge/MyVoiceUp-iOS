@@ -5,6 +5,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="typicons.ttf">
+            <string>typicons</string>
+            <string>typicons</string>
+            <string>typicons</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Settings-->
         <scene sceneID="Fix-sB-ZWi">
@@ -385,8 +392,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sample Question 1, 2, 3" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="U2k-oO-sNu">
+                                <rect key="frame" x="20" y="20" width="560" height="18.5"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akz-2v-a17">
-                                <rect key="frame" x="0.0" y="46.5" width="600" height="553.5"/>
+                                <rect key="frame" x="0.0" y="46" width="600" height="553.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0I-xT-6kq">
                                         <rect key="frame" x="542" y="515" width="50" height="30"/>
@@ -411,44 +424,105 @@
                                             <color key="titleColor" red="0.92877810849999998" green="0.1760839763" blue="0.30215207150000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMQ-7g-eRw">
-                                        <rect key="frame" x="43" y="38" width="50" height="30"/>
-                                        <state key="normal" title="Record">
-                                            <color key="titleColor" red="0.63921570780000003" green="0.1215686277" blue="0.2039215714" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="disabled">
-                                            <color key="titleColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="recordTouchUp:" destination="csi-Wp-RaE" eventType="touchUpInside" id="pN4-tc-9MQ"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ae-MY-Auz">
-                                        <rect key="frame" x="192" y="42" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7K-D0-oBF">
-                                        <rect key="frame" x="128" y="38" width="30" height="30"/>
-                                        <state key="normal" title="Play">
-                                            <color key="titleColor" red="0.63921570780000003" green="0.1215686277" blue="0.2039215714" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="disabled">
-                                            <color key="titleColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="playTouchUo:" destination="csi-Wp-RaE" eventType="touchUpInside" id="8Sk-PM-htI"/>
-                                        </connections>
-                                    </button>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7GG-Mh-d6Q">
-                                        <rect key="frame" x="43" y="22" width="191" height="2"/>
-                                        <color key="tintColor" red="0.40000000600000002" green="0.69411766529999996" blue="0.19607843459999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="progressTintColor" red="0.40000000600000002" green="0.69411766529999996" blue="0.19607843459999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="trackTintColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
-                                    </progressView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kqa-vD-LdW">
+                                        <rect key="frame" x="162" y="8" width="276" height="92"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ae-MY-Auz">
+                                                <rect key="frame" x="170" y="26" width="98" height="46"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="46" id="1ho-6y-aVt"/>
+                                                    <constraint firstAttribute="width" constant="98" id="RUM-qU-2ne"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7GG-Mh-d6Q">
+                                                <rect key="frame" x="8" y="8" width="260" height="2"/>
+                                                <color key="tintColor" red="0.40000000600000002" green="0.69411766529999996" blue="0.19607843459999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="progressTintColor" red="0.40000000600000002" green="0.69411766529999996" blue="0.19607843459999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="trackTintColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                            </progressView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9I-iR-qTT">
+                                                <rect key="frame" x="8" y="26" width="46" height="46"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="46" id="8hz-WQ-Xah"/>
+                                                    <constraint firstAttribute="width" constant="46" id="yJi-8g-oP3"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="typicons" family="Typicons" pointSize="38"/>
+                                                <state key="normal" title="">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="disabled">
+                                                    <color key="titleColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="recordTouchUp:" destination="csi-Wp-RaE" eventType="touchUpInside" id="zF8-ab-op2"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fkq-kS-lz3">
+                                                <rect key="frame" x="116" y="26" width="46" height="46"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="46" id="LJe-a8-pl9"/>
+                                                    <constraint firstAttribute="width" constant="46" id="Mzn-hh-kpI"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="typicons" family="Typicons" pointSize="38"/>
+                                                <state key="normal" title="">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="disabled">
+                                                    <color key="titleColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="rewindTouchUp:" destination="csi-Wp-RaE" eventType="touchUpInside" id="twc-6d-o2n"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i62-6x-YhB">
+                                                <rect key="frame" x="62" y="26" width="46" height="46"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="46" id="WHR-9Z-fq3"/>
+                                                    <constraint firstAttribute="width" constant="46" id="vDt-q0-gdM"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="typicons" family="Typicons" pointSize="38"/>
+                                                <state key="normal" title="">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="disabled">
+                                                    <color key="titleColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="playTouchUp:" destination="csi-Wp-RaE" eventType="touchUpInside" id="3Ik-jW-oI2"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="5ae-MY-Auz" secondAttribute="trailing" constant="8" id="6hm-eX-BMp"/>
+                                            <constraint firstAttribute="trailing" secondItem="7GG-Mh-d6Q" secondAttribute="trailing" constant="8" id="KkX-bF-pED"/>
+                                            <constraint firstItem="Fkq-kS-lz3" firstAttribute="leading" secondItem="i62-6x-YhB" secondAttribute="trailing" constant="8" id="LLk-tS-EGO"/>
+                                            <constraint firstAttribute="height" constant="92" id="MmK-pq-fWs"/>
+                                            <constraint firstItem="7GG-Mh-d6Q" firstAttribute="top" secondItem="Kqa-vD-LdW" secondAttribute="top" constant="8" id="Tr8-zd-k2t"/>
+                                            <constraint firstItem="Q9I-iR-qTT" firstAttribute="leading" secondItem="Kqa-vD-LdW" secondAttribute="leading" constant="8" id="Tvv-xf-WYA"/>
+                                            <constraint firstItem="5ae-MY-Auz" firstAttribute="leading" secondItem="Fkq-kS-lz3" secondAttribute="trailing" constant="8" id="V0L-nh-MOW"/>
+                                            <constraint firstItem="Q9I-iR-qTT" firstAttribute="top" secondItem="7GG-Mh-d6Q" secondAttribute="bottom" constant="16" id="YtG-kA-mJh"/>
+                                            <constraint firstItem="7GG-Mh-d6Q" firstAttribute="leading" secondItem="Kqa-vD-LdW" secondAttribute="leading" constant="8" id="Zo6-Xf-Elh"/>
+                                            <constraint firstItem="5ae-MY-Auz" firstAttribute="top" secondItem="7GG-Mh-d6Q" secondAttribute="bottom" constant="16" id="hHV-aN-D2P"/>
+                                            <constraint firstItem="i62-6x-YhB" firstAttribute="leading" secondItem="Q9I-iR-qTT" secondAttribute="trailing" constant="8" id="jgg-3a-Ra3"/>
+                                            <constraint firstAttribute="trailing" secondItem="Fkq-kS-lz3" secondAttribute="trailing" constant="114" id="kR4-qL-SAP"/>
+                                            <constraint firstItem="Fkq-kS-lz3" firstAttribute="top" secondItem="7GG-Mh-d6Q" secondAttribute="bottom" constant="16" id="mDJ-3u-w43"/>
+                                            <constraint firstItem="i62-6x-YhB" firstAttribute="top" secondItem="7GG-Mh-d6Q" secondAttribute="bottom" constant="16" id="nqP-f0-t4X"/>
+                                            <constraint firstItem="i62-6x-YhB" firstAttribute="leading" secondItem="Kqa-vD-LdW" secondAttribute="leading" constant="62" id="s7v-8c-BWJ"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="s7v-8c-BWJ"/>
+                                                <exclude reference="kR4-qL-SAP"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -456,19 +530,15 @@
                                     <constraint firstAttribute="trailing" secondItem="O0I-xT-6kq" secondAttribute="trailing" constant="8" id="32H-Zz-fLd"/>
                                     <constraint firstItem="qlH-vt-6PM" firstAttribute="leading" secondItem="akz-2v-a17" secondAttribute="leading" constant="16" id="Y6c-Dw-cVd"/>
                                     <constraint firstAttribute="bottom" secondItem="O0I-xT-6kq" secondAttribute="bottom" constant="8" id="aKV-y6-N0s"/>
+                                    <constraint firstAttribute="centerX" secondItem="Kqa-vD-LdW" secondAttribute="centerX" id="bU6-2O-0eL"/>
                                     <constraint firstAttribute="bottom" secondItem="qlH-vt-6PM" secondAttribute="bottom" constant="8" id="yXS-o7-kdC"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sample Question 1, 2, 3" lineBreakMode="tailTruncation" numberOfLines="3" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="U2k-oO-sNu">
-                                <rect key="frame" x="20" y="20" width="560" height="18.5"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.63921570780000003" green="0.1215686277" blue="0.2039215714" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="i62-6x-YhB" firstAttribute="top" secondItem="U2k-oO-sNu" secondAttribute="bottom" constant="41.5" id="38A-ET-Qj6"/>
                             <constraint firstItem="U2k-oO-sNu" firstAttribute="leading" secondItem="vGE-Q1-OuK" secondAttribute="leading" constant="20" symbolic="YES" id="Bxj-xb-m1A"/>
                             <constraint firstItem="U2k-oO-sNu" firstAttribute="top" secondItem="vGE-Q1-OuK" secondAttribute="top" constant="20" symbolic="YES" id="Pq0-ET-SqG"/>
                             <constraint firstAttribute="trailing" secondItem="U2k-oO-sNu" secondAttribute="trailing" constant="20" symbolic="YES" id="Qdz-5X-I1b"/>
@@ -482,9 +552,10 @@
                         <outlet property="backButton" destination="qlH-vt-6PM" id="mzh-r3-xkE"/>
                         <outlet property="dataLabel" destination="U2k-oO-sNu" id="qU9-xk-mu2"/>
                         <outlet property="nextButton" destination="O0I-xT-6kq" id="W8c-mL-jAO"/>
-                        <outlet property="playButton" destination="i7K-D0-oBF" id="U5D-na-nxh"/>
-                        <outlet property="recordButton" destination="KMQ-7g-eRw" id="lNE-1u-ZmH"/>
-                        <outlet property="recordTimeLabel" destination="5ae-MY-Auz" id="5UM-jR-soa"/>
+                        <outlet property="playButton" destination="i62-6x-YhB" id="zyU-l5-AJW"/>
+                        <outlet property="recordButton" destination="Q9I-iR-qTT" id="6jP-S1-l2A"/>
+                        <outlet property="recordTimeLabel" destination="5ae-MY-Auz" id="WW9-o8-GnN"/>
+                        <outlet property="rewindButton" destination="Fkq-kS-lz3" id="oig-BM-vqN"/>
                         <outlet property="volumeProgress" destination="7GG-Mh-d6Q" id="ysn-zg-DyN"/>
                     </connections>
                 </viewController>

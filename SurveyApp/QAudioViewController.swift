@@ -9,47 +9,71 @@
 import UIKit
 import AVFoundation
 
-class QAudioViewController: QuestionViewController, AVAudioRecorderDelegate {
+class QAudioViewController: QuestionViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var recordTimeLabel: UILabel!
     @IBOutlet weak var volumeProgress: UIProgressView!
+    @IBOutlet weak var rewindButton: UIButton!
     
     var recorder: AVAudioRecorder!
     var player: AVAudioPlayer!
     
     var meterClock: NSTimer?
+    var timeClock: NSTimer?
     
     @IBAction func recordTouchUp(sender: AnyObject) {
     
         let isRecording = recorder.recording
         if isRecording {
             recorder.stop()
-            playButton.enabled = true
-            recordButton.setTitle("Record", forState: .Normal)
-            
-            var error: NSError?
-            self.player = AVAudioPlayer(contentsOfURL: recorder.url, error: &error)
-            if let e = error {
-                println(e.localizedDescription)
-            }
         } else {
             recorder.record()
-            recordButton.setTitle("Stop", forState: .Normal)
-                        
+            //recordButton.setTitle("Stop", forState: .Normal)
+            recordButton.setTitleColor(UIColor.redColor(), forState: .Normal)
+            
             self.meterClock = NSTimer.scheduledTimerWithTimeInterval(0.1,
                 target:self,
                 selector:"audioMeterUpdate:",
                 userInfo:nil,
                 repeats:true)
+            
+            self.timeClock = NSTimer.scheduledTimerWithTimeInterval(0.1,
+                target:self,
+                selector:"recordTimeUpdate:",
+                userInfo:nil,
+                repeats:true)
         }
-        
     }
     
-    @IBAction func playTouchUo(sender: AnyObject) {
-        player.prepareToPlay()
-        player.play()
+    @IBAction func playTouchUp(sender: AnyObject) {
+
+        if player.playing {
+            player.pause()
+            playButton.setTitle("", forState: .Normal)
+            timeClock?.invalidate()
+            
+        } else {
+            
+            player.prepareToPlay()
+            player.volume = 1.0
+            player.play()
+            playButton.setTitle("", forState: .Normal)
+            
+            self.timeClock = NSTimer.scheduledTimerWithTimeInterval(0.1,
+                target:self,
+                selector:"playTimeUpdate:",
+                userInfo:nil,
+                repeats:true)
+        }
+    }
+   
+    
+    @IBAction func rewindTouchUp(sender: AnyObject) {
+        player.currentTime = 0.0
+        displayPlaybackTime(player.duration)
+        
     }
     
     override func viewDidLoad() {
@@ -125,7 +149,42 @@ class QAudioViewController: QuestionViewController, AVAudioRecorderDelegate {
     
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
         meterClock?.invalidate()
+        timeClock?.invalidate()
         volumeProgress.progress = 0.0
+        recordButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        
+        if flag {
+            
+            var error: NSError?
+            self.player = AVAudioPlayer(contentsOfURL: recorder.url, error: &error)
+            if let e = error {
+                println(e.localizedDescription)
+            } else {
+                playButton.enabled = true
+                displayPlaybackTime(player.duration)
+            }
+        }
     }
+    
+    func audioPlayerDidFinishPlaying(player: AVAudioPlayer!, successfully flag: Bool) {
+        //play icon: 
+        playButton.setTitle("", forState: .Normal)
+        timeClock?.invalidate()
+    }
+    
+    func recordTimeUpdate(theTimer: NSTimer) {
+        displayPlaybackTime(recorder.currentTime)
+    }
+    
+    func playTimeUpdate(theTimer: NSTimer) {
+        displayPlaybackTime(player.currentTime)
+    }
+    
+    func displayPlaybackTime(theTime: NSTimeInterval) {
+        let minutes = Int(floor(theTime / 60.0))
+        let seconds = Int(remainder(theTime, 60.0))
+        recordTimeLabel.text  = String(format: "%d:%02d", minutes, seconds)
+    }
+    
     
 }
