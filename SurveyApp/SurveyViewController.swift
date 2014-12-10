@@ -80,7 +80,7 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
         
     func setProgress(questionIndex: Int) {
         questionProgress.progress = (Float(questionIndex)) / Float(survey.questions.count)
-        lblHeader.text = "Question \(questionIndex + 1)"
+        lblHeader.text = "Question \(questionIndex + 1) of \(survey.questions.count)"
     }
     
     // MARK: - QuestionViewController delegate methods
