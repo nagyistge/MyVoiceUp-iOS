@@ -30,6 +30,8 @@ class QAudioViewController: QuestionViewController, AVAudioRecorderDelegate, AVA
             recorder.stop()
         } else {
             recorder.record()
+            playButton.enabled = false
+            rewindButton.enabled = false
             //recordButton.setTitle("Stop", forState: .Normal)
             recordButton.setTitleColor(UIColor.redColor(), forState: .Normal)
             
@@ -81,6 +83,7 @@ class QAudioViewController: QuestionViewController, AVAudioRecorderDelegate, AVA
         
         recordButton.enabled = false
         playButton.enabled = false
+        rewindButton.enabled = false
         
         var recordSettings = [
             AVFormatIDKey: kAudioFormatAppleLossless,
@@ -161,6 +164,7 @@ class QAudioViewController: QuestionViewController, AVAudioRecorderDelegate, AVA
                 println(e.localizedDescription)
             } else {
                 playButton.enabled = true
+                rewindButton.enabled = true
                 displayPlaybackTime(player.duration)
             }
         }
