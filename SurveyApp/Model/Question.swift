@@ -40,6 +40,9 @@ class Question: Equatable {
             case .Range:
                 println("Range")
                 return QRange(json: json)
+            case .ImageChoices:
+                println("ImageChoices")
+                return QImgChoice(json: json)
             default:
                 println("FIXME: not handled yet")
             }
@@ -91,5 +94,21 @@ class QRange: Question {
         if let v = json["range_step"].number {
             rangeStep = v
         }
+    }
+}
+
+class QImgChoice: Question {
+    struct Choice {
+        var image: String
+        var text: String?
+    }
+
+    var choices = [Choice]()
+    
+    override init(json: JSON) {
+        super.init(json: json)
+        
+        choices = json["choices"].arrayValue.map{Choice(image: $0["image"].stringValue, text: $0["label"].string)}
+        
     }
 }

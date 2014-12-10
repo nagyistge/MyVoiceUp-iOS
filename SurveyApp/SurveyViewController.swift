@@ -68,6 +68,8 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
             result = "QAudioViewConroller"
         } else if let q = question as? QRange {
             result = "QRangeViewConroller"
+        } else if let q = question as? QImgChoice {
+            result = "QImgChoiceViewController"
         }
         
         let vc = storyboard.instantiateViewControllerWithIdentifier(result) as QuestionViewController
