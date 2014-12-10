@@ -17,18 +17,36 @@ class QRangeViewController: QuestionViewController {
 
     weak var rangeQuestion: QRange!
     
+    var step: Float = 1.0
+    var offset: Float = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         rangeQuestion = self.question as QRange
         
         minLabel.text = rangeQuestion.rangeMin.stringValue
         maxLabel.text = rangeQuestion.rangeMax.stringValue
-        rangeSlider.minimumValue = rangeQuestion.rangeMin.floatValue
-        rangeSlider.maximumValue = rangeQuestion.rangeMax.floatValue
+        
+        let vMin = rangeQuestion.rangeMin.floatValue
+        let vMax = rangeQuestion.rangeMax.floatValue
+        step = rangeQuestion.rangeStep.floatValue
+        
+        let steps: Float = (vMax - vMin) / step
+     
+        rangeSlider.minimumValue = 0
+        rangeSlider.maximumValue = steps
+        
+        offset = vMin
+        
+        rangeSlider.value = 0
+        valueLabel.text = minLabel.text
     }
     
     @IBAction func sliderValueChanged(sender: AnyObject) {
-        var value: NSNumber = rangeSlider.value
+        let stepper = rangeSlider.value
+        let curValue = offset + round(stepper) * step
+        
+        var value: NSNumber = curValue
         valueLabel.text = value.stringValue
     }
 }
