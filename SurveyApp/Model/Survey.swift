@@ -11,7 +11,9 @@ import SwiftyJSON
 
 class Survey {
     
+    var identifier: String
     var date: NSDate
+    var author: String?
     var questions = [Question]()
     
     init(json: JSON) {
@@ -19,6 +21,9 @@ class Survey {
         formatter.dateFormat = "yyyy-MM-dd"
         questions = json["questions"].arrayValue.map { Question.fromJSON($0) }.filter { $0 != nil }.map { $0! }
         date = formatter.dateFromString(json["date"].stringValue)!
+        identifier = json["id"].stringValue
+        author = json["author"].string
     }
+
     
 }

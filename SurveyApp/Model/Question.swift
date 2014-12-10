@@ -18,9 +18,11 @@ enum QuestionType : String {
 }
 
 class Question: Equatable {
+    var identifier: String
     var question_text: String
     
     init(json: JSON) {
+        identifier = json["question_id"].stringValue
         question_text = json["question_text"].stringValue
     }
     
