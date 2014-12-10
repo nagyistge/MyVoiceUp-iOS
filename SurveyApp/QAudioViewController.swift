@@ -121,6 +121,21 @@ class QAudioViewController: QuestionViewController, AVAudioRecorderDelegate, AVA
         }
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        if player != nil && player.playing {
+            player.stop()
+        }
+        if recorder != nil && recorder.record() {
+            recorder.stop()
+        }
+
+        //fixme: we should properly handle getting out of sight
+        // and coming back in
+        playButton.enabled = false
+        rewindButton.enabled = false
+        recordButton.enabled = false
+    }
+    
     func audioMeterUpdate(theTimer: NSTimer) {
         
         recorder.updateMeters()
