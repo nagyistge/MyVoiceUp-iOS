@@ -109,7 +109,8 @@ class QAudioViewController: QuestionViewController, AVAudioRecorderDelegate, AVA
             }
         }
         
-        var soundFileURL = self.generateSoundFileURL()
+        let mediaUUID = NSUUID().UUIDString
+        var soundFileURL = DataStore.sharedInstance.generateMediaURL(mediaUUID, suffix: "m4a")
         self.recorder = AVAudioRecorder(URL: soundFileURL, settings: recordSettings, error: &error)
         if let e = error {
             println(e.localizedDescription)
