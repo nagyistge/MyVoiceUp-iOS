@@ -16,22 +16,23 @@ class DataStore {
     }
     
     var survey: Survey?
+    var mediaURL: NSURL
     
     init() {
         if let file = NSBundle(forClass:AppDelegate.self).pathForResource("Questions", ofType: "json") {
             let data = NSData(contentsOfFile: file)!
             let json = JSON(data: data)
             survey = Survey(json: json)
-            
-            let fm = NSFileManager.defaultManager()
-            let docUrls = fm.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-            let fullURL = docUrls[0].URLByAppendingPathComponent("media")
-            var err: NSError?
-            fm.createDirectoryAtPath(fullURL.path!, withIntermediateDirectories: true, attributes:nil, error: &err)
-            //fixme: check error
         } else {
             survey = nil
         }
+        
+        let fm = NSFileManager.defaultManager()
+        let docUrls = fm.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        mediaURL = docUrls[0].URLByAppendingPathComponent("media")
+        var err: NSError?
+        fm.createDirectoryAtPath(mediaURL.path!, withIntermediateDirectories: true, attributes:nil, error: &err)
+        //fixme: check error
     }
     
     func generateMediaURL(uuid: String, suffix: String) -> NSURL {
@@ -42,4 +43,5 @@ class DataStore {
         println("Generated Media URL: \(fullURL, urls[0], uuid, filename)")
         return fullURL
     }
+    
 }
