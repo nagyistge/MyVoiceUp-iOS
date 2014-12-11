@@ -10,6 +10,7 @@ import Foundation
 
 class Survey {
     
+    var uuid: String
     var identifier: String
     var date: NSDate
     var author: String?
@@ -22,6 +23,12 @@ class Survey {
         date = formatter.dateFromString(json["date"].stringValue)!
         identifier = json["id"].stringValue
         author = json["author"].string
+
+        if let theId = json["uuid"].string {
+            uuid = theId
+        } else {
+            uuid = NSUUID().UUIDString
+        }
     }
 
     
