@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 private let _singelton = DataStore()
 

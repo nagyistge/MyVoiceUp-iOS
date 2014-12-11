@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 enum QuestionType : String {
     case Boolean = "boolean"
