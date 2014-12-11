@@ -18,6 +18,9 @@
 		E96C64DE1A37CBC9008A8FDE /* sage_fatigue3.png in Resources */ = {isa = PBXBuildFile; fileRef = E96C64D91A37CBC9008A8FDE /* sage_fatigue3.png */; };
 		E96C64DF1A37CBC9008A8FDE /* sage_fatigue4.png in Resources */ = {isa = PBXBuildFile; fileRef = E96C64DA1A37CBC9008A8FDE /* sage_fatigue4.png */; };
 		E96C64E11A38B844008A8FDE /* typicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E96C64E01A38B844008A8FDE /* typicons.ttf */; };
+		E96C64E31A38EA3F008A8FDE /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C64E21A38EA3F008A8FDE /* Answer.swift */; };
+		E96C64E51A38EA51008A8FDE /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C64E41A38EA51008A8FDE /* Response.swift */; };
+		E96C64E71A392E8F008A8FDE /* MediaBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C64E61A392E8F008A8FDE /* MediaBrowserViewController.swift */; };
 		E9B24AAF1A2FBD9000903FEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24AAE1A2FBD9000903FEE /* AppDelegate.swift */; };
 		E9B24AB11A2FBD9000903FEE /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24AB01A2FBD9000903FEE /* SurveyViewController.swift */; };
 		E9B24AB31A2FBD9000903FEE /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24AB21A2FBD9000903FEE /* QuestionViewController.swift */; };
@@ -59,6 +62,9 @@
 		E96C64D91A37CBC9008A8FDE /* sage_fatigue3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sage_fatigue3.png; path = ../../../../Downloads/sage_moodquestions/sage_fatigue3.png; sourceTree = "<group>"; };
 		E96C64DA1A37CBC9008A8FDE /* sage_fatigue4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sage_fatigue4.png; path = ../../../../Downloads/sage_moodquestions/sage_fatigue4.png; sourceTree = "<group>"; };
 		E96C64E01A38B844008A8FDE /* typicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = typicons.ttf; sourceTree = "<group>"; };
+		E96C64E21A38EA3F008A8FDE /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Answer.swift; path = SurveyApp/Model/Answer.swift; sourceTree = "<group>"; };
+		E96C64E41A38EA51008A8FDE /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Response.swift; path = SurveyApp/Model/Response.swift; sourceTree = "<group>"; };
+		E96C64E61A392E8F008A8FDE /* MediaBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaBrowserViewController.swift; sourceTree = "<group>"; };
 		E9B24AA91A2FBD9000903FEE /* SurveyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurveyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B24AAD1A2FBD9000903FEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9B24AAE1A2FBD9000903FEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +139,7 @@
 				E9B24AAE1A2FBD9000903FEE /* AppDelegate.swift */,
 				E9B24AB01A2FBD9000903FEE /* SurveyViewController.swift */,
 				E92B102B1A364F9F005BFDFE /* HomeViewController.swift */,
+				E96C64E61A392E8F008A8FDE /* MediaBrowserViewController.swift */,
 				E9B24AB21A2FBD9000903FEE /* QuestionViewController.swift */,
 				E9B24AF41A361EF600903FEE /* QAudioViewController.swift */,
 				E9B24AF21A36080C00903FEE /* QBoolViewContoller.swift */,
@@ -186,6 +193,8 @@
 				E9B24AD31A32206500903FEE /* Question.swift */,
 				E9B24AE61A32446200903FEE /* Survey.swift */,
 				E9B24AEE1A34C49E00903FEE /* DataStore.swift */,
+				E96C64E21A38EA3F008A8FDE /* Answer.swift */,
+				E96C64E41A38EA51008A8FDE /* Response.swift */,
 			);
 			name = Model;
 			path = ..;
@@ -312,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9B24AD41A32206500903FEE /* Question.swift in Sources */,
+				E96C64E71A392E8F008A8FDE /* MediaBrowserViewController.swift in Sources */,
 				E9B24AEF1A34C49E00903FEE /* DataStore.swift in Sources */,
 				E9B24AB11A2FBD9000903FEE /* SurveyViewController.swift in Sources */,
 				E9B24B011A362CE900903FEE /* SwiftyJSON.swift in Sources */,
@@ -319,10 +329,12 @@
 				E9B24AE71A32446200903FEE /* Survey.swift in Sources */,
 				E9B24AB31A2FBD9000903FEE /* QuestionViewController.swift in Sources */,
 				E9B24AF31A36080C00903FEE /* QBoolViewContoller.swift in Sources */,
+				E96C64E51A38EA51008A8FDE /* Response.swift in Sources */,
 				E9B24AFE1A362CD500903FEE /* Alamofire.swift in Sources */,
 				E9B24AF51A361EF600903FEE /* QAudioViewController.swift in Sources */,
 				E9B24AAF1A2FBD9000903FEE /* AppDelegate.swift in Sources */,
 				E9B24AF11A3516B400903FEE /* QTextChoicesViewController.swift in Sources */,
+				E96C64E31A38EA3F008A8FDE /* Answer.swift in Sources */,
 				E92B102C1A364F9F005BFDFE /* HomeViewController.swift in Sources */,
 				E96C64D51A37C70A008A8FDE /* QImgChoiceViewController.swift in Sources */,
 			);
