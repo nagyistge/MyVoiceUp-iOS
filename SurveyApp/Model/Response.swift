@@ -28,11 +28,11 @@ class Response {
     
     func addAnswer(answer: Answer) {
         
-        let possibleAnswer = answers.filter{ $0.question_id == answer.question_id }.first
+        let possibleAnswer = find(answers, answer)
         
         if let a = possibleAnswer {
-            //update answer, i.e.
-            println("Thois should actually not happen right now")
+            println("[I] replacing existing answer")
+            answers.removeAtIndex(a)
         }
         
         answers.append(answer)
