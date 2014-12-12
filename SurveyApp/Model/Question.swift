@@ -54,7 +54,7 @@ class Question: Equatable {
 }
 
 func ==(lhs: Question, rhs: Question) -> Bool {
-    return lhs.question_text == rhs.question_text
+    return lhs.identifier == rhs.identifier
 }
 
 class QTextChoice : Question {
