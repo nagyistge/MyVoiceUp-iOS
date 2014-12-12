@@ -8,7 +8,16 @@
 
 import Foundation
 
-class Answer {
+class Answer: Equatable {
     var question_id: String = ""
+    
+    init(qid: String) {
+        question_id = qid
+    }
+}
+
+func ==(lhs: Answer, rhs: Answer) -> Bool {
+    return lhs.question_id == rhs.question_id
+}
 }
 
