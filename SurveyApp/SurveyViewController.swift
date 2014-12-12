@@ -16,6 +16,7 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
 
     var pageViewController: UIPageViewController?
     var survey: Survey!
+    var response: Response!
     
     var delegate: SurveyViewControllerDelegate?
     
@@ -31,6 +32,7 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
         self.pageViewController!.delegate = self
     
         survey = DataStore.sharedInstance.survey! //FIXME
+        response = Response(survey_id: survey.uuid)
         
         let q = survey.questions.first!
         let vc = makeQuestionViewController(q)
@@ -74,6 +76,7 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
         
         let vc = storyboard.instantiateViewControllerWithIdentifier(result) as QuestionViewController
         vc.question = question
+        vc.response = response
         vc.delegate = self
         return vc
     }

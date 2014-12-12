@@ -18,6 +18,7 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     var question: Question!
+    var response: Response!
 
     var delegate: QuestionViewControllerDelegate?
 
