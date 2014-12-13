@@ -10,6 +10,17 @@ import Foundation
 
 private let _singelton = DataStore()
 
+class MediaFile {
+    var uuid: String
+    var url: NSURL
+    
+    init(uuid: String, url: NSURL) {
+        self.uuid = uuid
+        self.url = url
+    }
+    
+}
+
 class DataStore {
     class var sharedInstance: DataStore {
         return _singelton
