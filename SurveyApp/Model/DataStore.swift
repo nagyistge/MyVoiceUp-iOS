@@ -64,4 +64,72 @@ class DataStore {
         return fullURL
     }
     
+    func storeReponse(response: Response) {
+        
+        let data = response2JSON(response)
+        if let d = data {
+            println(NSString(data: d, encoding: NSUTF8StringEncoding))
+            
+            let fm = NSFileManager.defaultManager()
+            let urls = fm.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+            let dirpath = String(format: "responses/data/%@/", response.uuid)
+            let dirURL = urls[0].URLByAppendingPathComponent(dirpath, isDirectory: true)
+            
+            var err: NSError?
+            fm.createDirectoryAtURL(dirURL, withIntermediateDirectories: true, attributes:nil, error: &err)
+            
+            var filepath = String(format: "/%@.json", response.uuid)
+            let fileURL = dirURL.URLByAppendingPathComponent(filepath, isDirectory: false)
+            var result = d.writeToURL(fileURL, atomically: true)
+            //fixme: check results
+            
+            //create the index entries
+            //fm.createSymbolicLinkAtURL(, withDestinationURL: dirURL, error: &err)
+        } else {
+            println("[W] Oh oh")
+        }
+    }
+ 
+    func response2JSON(response: Response) -> NSData? {
+        var json: [String: AnyObject] = ["uuid": response.uuid,
+                                         "sid": response.surveyIdentifier]
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: "C")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        
+        json["timestap"] = dateFormatter.stringFromDate(response.timestamp)
+        
+        if let l = response.location {
+            json["location"] = ["lat": l.latitude, "long": l.longitude ]
+        }
+        
+        let answers = map(response.answers, { answer in self.answer2JSON(answer) })
+        json["answers"] = answers
+        var err: NSError?
+        let data = NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted, error: &err)
+        return data
+    }
+    
+    private func answer2JSON(answer: Answer) -> NSDictionary {
+        var json: [String: AnyObject] =  ["qid": answer.question_id]
+        if let a = answer as? ValuedAnswer<String> {
+            json["type"] = "string"
+            json["value"] = a.value
+        } else if let a = answer as? ValuedAnswer<Bool> {
+            json["type"] = "bool"
+            json["value"] = a.value
+        } else if let a = answer as? ValuedAnswer<Int> {
+            json["type"] = "int"
+            json["value"] = a.value
+        } else if let a = answer as? ValuedAnswer<Float> {
+            json["type"] = "float"
+            json["value"] = a.value
+        } else if let a = answer as? ValuedAnswer<MediaFile> {
+            json["type"] = "media-file"
+            json["uuid"] = a.value.uuid
+            json["filename"] = a.value.url.lastPathComponent!
+        }
+        return json
+    }
 }
