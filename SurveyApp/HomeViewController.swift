@@ -32,7 +32,9 @@ class HomeTableViewController: UITableViewController, UITableViewDataSource, Sur
             self.tableView.deselectRowAtIndexPath(index, animated: false)
         }
         
-        self.numResponsesLabel.text = String(format:"%d responses", DataStore.sharedInstance.numberOfResponses)
+        let ds = DataStore.sharedInstance
+        self.numResponsesLabel.text = String(format:"%d responses", ds.numberOfResponses)
+        self.numStreakLabel.text = String(format: "%d days", ds.currentStreak)
     }
 
     func surveyViewController(viewController: SurveyViewController, finishedSurvey: Survey) {
