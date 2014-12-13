@@ -19,5 +19,13 @@ class Answer: Equatable {
 func ==(lhs: Answer, rhs: Answer) -> Bool {
     return lhs.question_id == rhs.question_id
 }
+
+class ValuedAnswer<T>: Answer {
+    
+    var value: T
+    init(qid: String, value: T) {
+        self.value = value
+        super.init(qid: qid)
+    }
 }
 
