@@ -76,7 +76,6 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
         
         let vc = storyboard.instantiateViewControllerWithIdentifier(result) as QuestionViewController
         vc.question = question
-        vc.response = response
         vc.delegate = self
         return vc
     }
@@ -87,7 +86,12 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
     }
     
     // MARK: - QuestionViewController delegate methods
-    func questionViewController(questionViewController: QuestionViewController, finishedQuestion:Question) {
+    func questionViewController(questionViewController: QuestionViewController, finishedQuestion:Question, withAnswer: Answer?) {
+        
+        if let a = withAnswer {
+            response.addAnswer(a)
+        }
+        
         var idx = find(survey.questions, finishedQuestion)!
         
         if (idx + 1 < survey.questions.count) {

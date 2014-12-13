@@ -9,7 +9,7 @@
 import UIKit
 
 protocol QuestionViewControllerDelegate {
-    func questionViewController(questionViewController: QuestionViewController, finishedQuestion:Question)
+    func questionViewController(questionViewController: QuestionViewController, finishedQuestion: Question, withAnswer: Answer?)
 }
 
 class QuestionViewController: UIViewController {
@@ -18,8 +18,8 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     var question: Question!
-    var response: Response!
-
+    var answer: Answer?
+    
     var delegate: QuestionViewControllerDelegate?
 
     override func viewDidLoad() {
@@ -38,7 +38,7 @@ class QuestionViewController: UIViewController {
     // MARK - Button Actions
     @IBAction func nextButtonUp(sender: AnyObject) {
         if let dlg = delegate {
-            dlg.questionViewController(self, finishedQuestion: self.question)
+            dlg.questionViewController(self, finishedQuestion: self.question, withAnswer: self.answer)
         }
     }
     
