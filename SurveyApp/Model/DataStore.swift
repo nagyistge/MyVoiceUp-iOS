@@ -52,7 +52,16 @@ class DataStore {
         
         let responsesDateIndex = docUrls[0].URLByAppendingPathComponent("responses/by_date/", isDirectory: true)
         fm.createDirectoryAtURL(responsesDateIndex, withIntermediateDirectories: true, attributes: nil, error: &err)
+    }
     
+    var numberOfResponses: Int {
+        
+        get {
+            let dataURL = storeURL.URLByAppendingPathComponent("responses/data/", isDirectory: true)
+            let fm = NSFileManager.defaultManager()
+            let contents = fm.contentsOfDirectoryAtURL(dataURL, includingPropertiesForKeys: nil, options: .SkipsSubdirectoryDescendants, error: nil)
+            return contents?.count ?? 0
+        }
     }
     
     func generateMediaURL(uuid: String, suffix: String) -> NSURL {
