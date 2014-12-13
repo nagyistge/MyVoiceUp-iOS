@@ -64,6 +64,12 @@ class DataStore {
         }
     }
     
+    var currentStreak: Int {
+        get {
+            return 0;
+        }
+    }
+    
     func generateMediaURL(uuid: String, suffix: String) -> NSURL {
         let fm = NSFileManager.defaultManager()
         let urls = fm.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
