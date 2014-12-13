@@ -98,8 +98,10 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
             let vc = makeQuestionViewController(survey.questions[idx+1])
             self.pageViewController!.setViewControllers([vc], direction: .Forward, animated: true, completion: {done in })
             self.setProgress(idx + 1)
+            
         } else if (idx + 1 == survey.questions.count) {
             if let d = self.delegate {
+                DataStore.sharedInstance.storeReponse(response)
                 d.surveyViewController(self, finishedSurvey: survey)
             }
         }
