@@ -15,6 +15,7 @@ class Response {
         var longitude: Double
     }
     
+    var uuid: String
     var surveyIdentifier: String
     var timestamp: NSDate
     var location: Location?
@@ -22,6 +23,7 @@ class Response {
     init(survey_id: String) {
         timestamp = NSDate()
         surveyIdentifier = survey_id
+        uuid = NSUUID().UUIDString
     }
     
     var answers = [Answer]()
