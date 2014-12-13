@@ -18,6 +18,10 @@ class HomeViewController : UIViewController {
 
 class HomeTableViewController: UITableViewController, UITableViewDataSource, SurveyViewControllerDelegate {
     
+    
+    @IBOutlet weak var numResponsesLabel: UILabel!
+    @IBOutlet weak var numStreakLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -27,6 +31,8 @@ class HomeTableViewController: UITableViewController, UITableViewDataSource, Sur
         if let index = self.tableView.indexPathForSelectedRow() {
             self.tableView.deselectRowAtIndexPath(index, animated: false)
         }
+        
+        self.numResponsesLabel.text = String(format:"%d responses", DataStore.sharedInstance.numberOfResponses)
     }
 
     func surveyViewController(viewController: SurveyViewController, finishedSurvey: Survey) {
@@ -41,4 +47,8 @@ class HomeTableViewController: UITableViewController, UITableViewDataSource, Sur
             self.navigationController?.navigationBarHidden = false
         }
     }
+}
+
+class ResponsesInfoCell: UITableViewCell {
+
 }

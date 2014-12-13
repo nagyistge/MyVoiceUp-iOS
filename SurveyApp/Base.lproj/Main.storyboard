@@ -104,7 +104,7 @@
                         <sections>
                             <tableViewSection id="5px-1y-tgf">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SurveyStats" rowHeight="133" id="m0N-tq-8ca">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SurveyStats" rowHeight="133" id="m0N-tq-8ca" customClass="ResponsesInfoCell" customModule="SurveyApp" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m0N-tq-8ca" id="6Zi-ZH-0Ab">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -219,6 +219,10 @@
                             <outlet property="delegate" destination="3yK-Ia-dLk" id="221-bX-5k0"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="numResponsesLabel" destination="t6p-IJ-XDX" id="gUx-8z-hfc"/>
+                        <outlet property="numStreakLabel" destination="9va-PB-dVQ" id="5CY-jG-76a"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clV-t7-6gH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
