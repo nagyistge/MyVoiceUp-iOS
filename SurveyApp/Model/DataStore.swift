@@ -52,6 +52,11 @@ class DataStore {
         
         let responsesDateIndex = docUrls[0].URLByAppendingPathComponent("responses/by_date/", isDirectory: true)
         fm.createDirectoryAtURL(responsesDateIndex, withIntermediateDirectories: true, attributes: nil, error: &err)
+        
+        for d in datesWithResponses {
+            println(d)
+        }
+        
     }
     
     var numberOfResponses: Int {
@@ -66,7 +71,20 @@ class DataStore {
     
     var currentStreak: Int {
         get {
-            return 0;
+            
+            let dt = datesWithResponses.map{ abs($0.timeIntervalSinceNow) }
+            var inStreak = 0
+            for index in 0...dt.count {
+                let curDT = (Double(index) + 2.0) * 86400.0
+                println("\(curDT), \(dt[index])")
+                if dt[index] > curDT {
+                    break
+                } else {
+                    inStreak += 1
+                }
+            }
+            
+            return inStreak;
         }
     }
     
@@ -113,7 +131,22 @@ class DataStore {
             //fixme: check results
             
             //create the index entries
-            //fm.createSymbolicLinkAtURL(, withDestinationURL: dirURL, error: &err)
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.locale = NSLocale(localeIdentifier: "C")
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            
+            let dateString = dateFormatter.stringFromDate(response.timestamp)
+            
+            let dateIndex = String(format: "responses/by_date/%@", dateString)
+            let dateIndexURL = storeURL.URLByAppendingPathComponent(dateIndex, isDirectory: true)
+            
+            fm.createDirectoryAtURL(dateIndexURL, withIntermediateDirectories: true, attributes: nil, error: &err)
+            
+            let responseDateURL = dateIndexURL.URLByAppendingPathComponent(response.uuid, isDirectory: true)
+            fm.createSymbolicLinkAtURL(responseDateURL, withDestinationURL: dirURL, error: &err)
+            //fixme: again check error
+            
+            
         } else {
             println("[W] Oh oh")
         }
