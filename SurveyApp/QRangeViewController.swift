@@ -40,6 +40,8 @@ class QRangeViewController: QuestionViewController {
         
         rangeSlider.value = 0
         valueLabel.text = minLabel.text
+        
+        self.answer = ValuedAnswer<Float>(question: self.question, value: vMin)
     }
     
     @IBAction func sliderValueChanged(sender: AnyObject) {
@@ -48,5 +50,9 @@ class QRangeViewController: QuestionViewController {
         
         var value: NSNumber = curValue
         valueLabel.text = value.stringValue
+        
+        if let a = self.answer as? ValuedAnswer<Float> {
+            a.value = curValue
+        }
     }
 }

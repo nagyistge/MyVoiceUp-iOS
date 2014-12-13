@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QTextChoiceViewController: QuestionViewController, UITableViewDataSource {
+class QTextChoiceViewController: QuestionViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -16,8 +16,13 @@ class QTextChoiceViewController: QuestionViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView!.dataSource = self
+        tableView.dataSource = self
+        tableView.delegate = self
         txtChoiceQ = self.question as QTextChoice
+        
+        if let a = self.answer {
+            println("Have answer already")
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -29,6 +34,16 @@ class QTextChoiceViewController: QuestionViewController, UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return txtChoiceQ.choices.count
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if self.answer == nil {
+            self.answer = ValuedAnswer<Int>(question: self.question, value: indexPath.row)
+        } else {
+            let a = self.answer as ValuedAnswer<Int>
+            a.value = indexPath.row
+        }
     }
 }
 

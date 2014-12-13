@@ -23,6 +23,8 @@ class QAudioViewController: QuestionViewController, AVAudioRecorderDelegate, AVA
     var meterClock: NSTimer?
     var timeClock: NSTimer?
     
+    var mediaFile: MediaFile?
+    
     @IBAction func recordTouchUp(sender: AnyObject) {
     
         let isRecording = recorder.recording
@@ -111,6 +113,9 @@ class QAudioViewController: QuestionViewController, AVAudioRecorderDelegate, AVA
         
         let mediaUUID = NSUUID().UUIDString
         var soundFileURL = DataStore.sharedInstance.generateMediaURL(mediaUUID, suffix: "m4a")
+        
+        mediaFile = MediaFile(uuid: mediaUUID, url: soundFileURL)
+        
         self.recorder = AVAudioRecorder(URL: soundFileURL, settings: recordSettings, error: &error)
         if let e = error {
             println(e.localizedDescription)
@@ -173,6 +178,10 @@ class QAudioViewController: QuestionViewController, AVAudioRecorderDelegate, AVA
         recordButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
         
         if flag {
+            
+            if self.answer == nil {
+                self.answer = ValuedAnswer<MediaFile>(question: self.question, value: self.mediaFile!)
+            }
             
             var error: NSError?
             self.player = AVAudioPlayer(contentsOfURL: recorder.url, error: &error)

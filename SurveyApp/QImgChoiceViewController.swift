@@ -9,7 +9,7 @@
 import UIKit
 
 
-class QImgChoiceViewController: QuestionViewController, UITableViewDataSource {
+class QImgChoiceViewController: QuestionViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -17,7 +17,8 @@ class QImgChoiceViewController: QuestionViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView!.dataSource = self
+        tableView.dataSource = self
+        tableView.delegate = self
         imgChoiceQ = self.question as QImgChoice
     }
     
@@ -35,6 +36,18 @@ class QImgChoiceViewController: QuestionViewController, UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return imgChoiceQ.choices.count
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    
+        if self.answer == nil {
+            self.answer = ValuedAnswer<Int>(question: self.question, value: indexPath.row)
+        } else {
+            let a = self.answer as ValuedAnswer<Int>
+            a.value = indexPath.row
+        }
+        
+    }
+    
 }
 
 class QImgChoiceCell: UITableViewCell {
