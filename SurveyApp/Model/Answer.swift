@@ -27,5 +27,10 @@ class ValuedAnswer<T>: Answer {
         self.value = value
         super.init(qid: qid)
     }
+    
+    init(question: Question, value: T) {
+        self.value = value
+        super.init(qid: question.identifier)
+    }
 }
 
