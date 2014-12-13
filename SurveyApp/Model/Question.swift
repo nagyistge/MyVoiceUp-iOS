@@ -19,10 +19,15 @@ enum QuestionType : String {
 class Question: Equatable {
     var identifier: String
     var question_text: String
+    var skippable = false
     
     init(json: JSON) {
         identifier = json["question_id"].stringValue
         question_text = json["question_text"].stringValue
+        
+        if let canSkip = json["skippable"].bool {
+            skippable = canSkip
+        }
     }
     
     class func fromJSON(json: JSON) -> Question? {
