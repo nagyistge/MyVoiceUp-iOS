@@ -28,9 +28,9 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
         super.viewDidLoad()
         
         // PageController setup
-        self.pageViewController = UIPageViewController(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
         self.pageViewController!.delegate = self
-    
+        self.pageViewController!.automaticallyAdjustsScrollViewInsets = false
+        
         survey = DataStore.sharedInstance.survey! //FIXME
         response = Response(survey_id: survey.uuid)
         
@@ -39,12 +39,6 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
         let viewControllers = [vc]
         self.pageViewController!.setViewControllers(viewControllers, direction: .Forward, animated: false, completion: {done in })
         setProgress(0)
-
-        self.addChildViewController(self.pageViewController!)
-        self.container.addSubview(self.pageViewController!.view)
-        self.pageViewController!.view.frame = self.container.bounds
-        self.pageViewController!.didMoveToParentViewController(self)
-        self.view.gestureRecognizers = self.pageViewController!.gestureRecognizers
     }
 
     // MARK: - UIPageViewController delegate methods
@@ -106,10 +100,16 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
             }
         }
     }
-
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+        if let destVC = segue.destinationViewController as? UIPageViewController {
+            self.pageViewController = destVC
+        }
     }
 
 }
