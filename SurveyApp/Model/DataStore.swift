@@ -74,7 +74,7 @@ class DataStore {
             
             let dt = datesWithResponses.map{ abs($0.timeIntervalSinceNow) }
             var inStreak = 0
-            for index in 0...dt.count {
+            for var index = 0; index < dt.count; ++index {
                 let curDT = (Double(index) + 2.0) * 86400.0
                 println("\(curDT), \(dt[index])")
                 if dt[index] > curDT {
