@@ -18,13 +18,29 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     var question: Question!
-    var answer: Answer?
+    var answer: Answer? {
+        get {
+            return _answer
+        }
+        set {
+            _answer = newValue
+            nextButton.enabled = newValue != nil
+        }
+    }
+    
+    private var _answer: Answer?
     
     var delegate: QuestionViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataLabel!.text = question.question_text
+        self.nextButton.enabled = question.skippable || answer != nil
+        self.backButton.enabled = false // fixme
+        
+        self.nextButton.setTitleColor(UIColor.grayColor(), forState: .Disabled)
+        self.backButton.setTitleColor(UIColor.grayColor(), forState: .Disabled)
+        
     }
     
     override func didReceiveMemoryWarning() {
