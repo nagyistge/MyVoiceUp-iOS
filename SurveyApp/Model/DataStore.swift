@@ -111,6 +111,16 @@ class DataStore {
         return fullURL
     }
     
+    func listMediaFiles() -> [MediaFile] {
+        var err: NSError?
+        let fm = NSFileManager.defaultManager()
+        let files = fm.contentsOfDirectoryAtURL(self.mediaURL, includingPropertiesForKeys: [NSURLNameKey, NSURLFileResourceTypeKey], options: nil, error: &err)
+        
+        let mediaFiles = files?.map{ $0 as NSURL }.map{ MediaFile(uuid: $0.lastPathComponent!.stringByDeletingPathExtension, url: $0) }
+
+        return mediaFiles ?? [MediaFile]()
+    }
+    
     func storeReponse(response: Response) {
         
         let data = response2JSON(response)
