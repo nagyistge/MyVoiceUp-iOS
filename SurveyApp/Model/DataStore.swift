@@ -125,6 +125,13 @@ class DataStore {
         let mf = response.answers.filter{ $0 is ValuedAnswer<MediaFile> }.map{ $0 as ValuedAnswer<MediaFile> }.map{ $0.value }
         return mf ?? [MediaFile]()
     }
+    
+    func urlForResponse(response: Response) -> NSURL {
+        let dirpath = String(format: "responses/data/%@/", response.uuid)
+        let dirURL = storeURL.URLByAppendingPathComponent(dirpath, isDirectory: true)
+        return dirURL
+    }
+    
     func storeReponse(response: Response) {
         
         let data = response2JSON(response)
