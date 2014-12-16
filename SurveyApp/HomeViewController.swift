@@ -24,6 +24,7 @@ class HomeTableViewController: UITableViewController, UITableViewDataSource, Sur
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBarHidden = false
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -37,13 +38,22 @@ class HomeTableViewController: UITableViewController, UITableViewDataSource, Sur
         self.numStreakLabel.text = String(format: "%d days", ds.currentStreak)
     }
 
-    func surveyViewController(viewController: SurveyViewController, finishedSurvey: Survey) {
-        self.navigationController?.popViewControllerAnimated(true)
+    func surveyViewController(viewController: SurveyViewController, forSurvey survey:Survey, withResponse response: Response) {
+
+        DataStore.sharedInstance.storeReponse(response)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("DataUpload") as DataUploadViewController
+        vc.response = response
+        self.navigationController?.navigationBar.topItem?.title = "Home"
+        self.navigationController?.setViewControllers([self.parentViewController!, vc], animated: true);
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-
+        super.prepareForSegue(segue, sender: sender)
+        
         if let destVC = segue.destinationViewController as? SurveyViewController {
+            self.navigationController?.navigationBarHidden = true
             destVC.delegate = self
         } else {
             self.navigationController?.navigationBarHidden = false

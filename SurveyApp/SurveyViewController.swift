@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SurveyViewControllerDelegate {
-    func surveyViewController(viewController: SurveyViewController, finishedSurvey: Survey)
+    func surveyViewController(viewController: SurveyViewController, forSurvey survey: Survey, withResponse response: Response)
 }
 
 class SurveyViewController: UIViewController, UIPageViewControllerDelegate, QuestionViewControllerDelegate {
@@ -95,8 +95,7 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
             
         } else if (idx + 1 == survey.questions.count) {
             if let d = self.delegate {
-                DataStore.sharedInstance.storeReponse(response)
-                d.surveyViewController(self, finishedSurvey: survey)
+                d.surveyViewController(self, forSurvey: survey, withResponse: response)
             }
         }
     }

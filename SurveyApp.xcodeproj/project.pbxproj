@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		DCC89C76E6AE9D432C78CDCF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E4080ED3DC4AA4306B0CD1 /* libPods.a */; };
+		E91F3AA01A3DE79100081821 /* Ohmage2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A9F1A3DE79100081821 /* Ohmage2Client.m */; };
 		E92B102A1A363ABA005BFDFE /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92B10291A363ABA005BFDFE /* MediaPlayer.framework */; };
 		E92B102C1A364F9F005BFDFE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92B102B1A364F9F005BFDFE /* HomeViewController.swift */; };
 		E92B102E1A366A66005BFDFE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92B102D1A366A66005BFDFE /* QuartzCore.framework */; };
 		E92B10301A379B84005BFDFE /* QRangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92B102F1A379B84005BFDFE /* QRangeViewController.swift */; };
+		E961F0601A40C0F200932EB4 /* DataUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961F05F1A40C0F200932EB4 /* DataUploadViewController.swift */; };
 		E96C64D51A37C70A008A8FDE /* QImgChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C64D41A37C70A008A8FDE /* QImgChoiceViewController.swift */; };
 		E96C64DB1A37CBC9008A8FDE /* sage_fatigue0.png in Resources */ = {isa = PBXBuildFile; fileRef = E96C64D61A37CBC9008A8FDE /* sage_fatigue0.png */; };
 		E96C64DC1A37CBC9008A8FDE /* sage_fatigue1.png in Resources */ = {isa = PBXBuildFile; fileRef = E96C64D71A37CBC9008A8FDE /* sage_fatigue1.png */; };
@@ -57,10 +59,13 @@
 		AE3DBFE6C5B04195FF1E4221 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BEDF7E2CE8A08A079A220AE0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E91F3A9E1A3DE79000081821 /* SurveyApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SurveyApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		E91F3A9F1A3DE79100081821 /* Ohmage2Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ohmage2Client.m; path = Sinks/Ohmage2/Ohmage2Client.m; sourceTree = "<group>"; };
+		E91F3AA31A3DE7D600081821 /* Ohmage2Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ohmage2Client.h; path = Sinks/Ohmage2/Ohmage2Client.h; sourceTree = "<group>"; };
 		E92B10291A363ABA005BFDFE /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		E92B102B1A364F9F005BFDFE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E92B102D1A366A66005BFDFE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E92B102F1A379B84005BFDFE /* QRangeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRangeViewController.swift; sourceTree = "<group>"; };
+		E961F05F1A40C0F200932EB4 /* DataUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataUploadViewController.swift; sourceTree = "<group>"; };
 		E96C64D41A37C70A008A8FDE /* QImgChoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QImgChoiceViewController.swift; sourceTree = "<group>"; };
 		E96C64D61A37CBC9008A8FDE /* sage_fatigue0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sage_fatigue0.png; path = ../../../../Downloads/sage_moodquestions/sage_fatigue0.png; sourceTree = "<group>"; };
 		E96C64D71A37CBC9008A8FDE /* sage_fatigue1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sage_fatigue1.png; path = ../../../../Downloads/sage_moodquestions/sage_fatigue1.png; sourceTree = "<group>"; };
@@ -94,6 +99,7 @@
 		E9B24AFD1A362CD500903FEE /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = "Alamofire-SwiftyJSON/Alamofire/Source/Alamofire.swift"; sourceTree = "<group>"; };
 		E9B24AFF1A362CE900903FEE /* SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiftyJSON.h; path = "Alamofire-SwiftyJSON/SwiftyJSON/Source/SwiftyJSON.h"; sourceTree = "<group>"; };
 		E9B24B001A362CE900903FEE /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = "Alamofire-SwiftyJSON/SwiftyJSON/Source/SwiftyJSON.swift"; sourceTree = "<group>"; };
+		E9EA16E71A3DF24B00010DDD /* Ohmage2Sink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ohmage2Sink.swift; path = Sinks/Ohmage2/Ohmage2Sink.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E91F3AA11A3DE7A300081821 /* Sinks */ = {
+			isa = PBXGroup;
+			children = (
+				E91F3A9F1A3DE79100081821 /* Ohmage2Client.m */,
+				E91F3AA31A3DE7D600081821 /* Ohmage2Client.h */,
+				E9EA16E71A3DF24B00010DDD /* Ohmage2Sink.swift */,
+			);
+			name = Sinks;
+			sourceTree = "<group>";
+		};
 		E9B24AA01A2FBD9000903FEE = {
 			isa = PBXGroup;
 			children = (
@@ -161,11 +177,13 @@
 		E9B24AAB1A2FBD9000903FEE /* SurveyApp */ = {
 			isa = PBXGroup;
 			children = (
+				E91F3AA11A3DE7A300081821 /* Sinks */,
 				E9B24AD21A32202A00903FEE /* Model */,
 				E9B24AAE1A2FBD9000903FEE /* AppDelegate.swift */,
 				E9B24AB01A2FBD9000903FEE /* SurveyViewController.swift */,
 				E92B102B1A364F9F005BFDFE /* HomeViewController.swift */,
 				E96C64E61A392E8F008A8FDE /* MediaBrowserViewController.swift */,
+				E961F05F1A40C0F200932EB4 /* DataUploadViewController.swift */,
 				E9B24AB21A2FBD9000903FEE /* QuestionViewController.swift */,
 				E9B24AF41A361EF600903FEE /* QAudioViewController.swift */,
 				E9B24AF21A36080C00903FEE /* QBoolViewContoller.swift */,
@@ -344,6 +362,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		209CE61B4125041A73A75010 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B43FBCC60F89406CD9EC39C8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E9B24AA51A2FBD9000903FEE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -351,6 +402,7 @@
 			files = (
 				E9B24AD41A32206500903FEE /* Question.swift in Sources */,
 				E96C64E71A392E8F008A8FDE /* MediaBrowserViewController.swift in Sources */,
+				E91F3AA01A3DE79100081821 /* Ohmage2Client.m in Sources */,
 				E9B24AEF1A34C49E00903FEE /* DataStore.swift in Sources */,
 				E9B24AB11A2FBD9000903FEE /* SurveyViewController.swift in Sources */,
 				E9B24B011A362CE900903FEE /* SwiftyJSON.swift in Sources */,
@@ -365,6 +417,7 @@
 				E9B24AAF1A2FBD9000903FEE /* AppDelegate.swift in Sources */,
 				E9B24AF11A3516B400903FEE /* QTextChoicesViewController.swift in Sources */,
 				E96C64E31A38EA3F008A8FDE /* Answer.swift in Sources */,
+				E961F0601A40C0F200932EB4 /* DataUploadViewController.swift in Sources */,
 				E92B102C1A364F9F005BFDFE /* HomeViewController.swift in Sources */,
 				E96C64D51A37C70A008A8FDE /* QImgChoiceViewController.swift in Sources */,
 			);
