@@ -121,6 +121,10 @@ class DataStore {
         return mediaFiles ?? [MediaFile]()
     }
     
+    func mediaFileForResponse(response: Response) -> [MediaFile] {
+        let mf = response.answers.filter{ $0 is ValuedAnswer<MediaFile> }.map{ $0 as ValuedAnswer<MediaFile> }.map{ $0.value }
+        return mf ?? [MediaFile]()
+    }
     func storeReponse(response: Response) {
         
         let data = response2JSON(response)
