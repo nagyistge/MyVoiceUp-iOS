@@ -57,7 +57,7 @@ class QBoolAnswerViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let d = delegate {
-            d.qboolAnswerViewController(self, madeChoice: indexPath.row == 1)
+            d.qboolAnswerViewController(self, madeChoice: indexPath.row == 0)
         }
     }
     
