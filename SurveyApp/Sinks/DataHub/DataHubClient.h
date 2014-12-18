@@ -10,9 +10,9 @@
 #define SurveyApp_DataHubClient_h
 #include <AFNetworking.h>
 
-@interface DataHubClient: NSObject
+@interface DHClient: NSObject
 
--(DataHubClient *) initWithURL:(NSURL *)url;
+-(DHClient *) initWithURL:(NSURL *)url;
 
 -(void) loginForUser:(NSString *)user withPassword:(NSString *)pass onSuccess:(void (^)(void)) successCallback onFailure:(void (^)(NSError *err)) failureCallback;
 ;

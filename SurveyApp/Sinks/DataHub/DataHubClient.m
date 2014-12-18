@@ -10,19 +10,19 @@
 #import "TFHpple.h"
 #import  <MobileCoreServices/MobileCoreServices.h>
 
-@interface DataHubClient ()
+@interface DHClient ()
 
 @property (strong, nonatomic) AFHTTPSessionManager *http;
 @property (strong, nonatomic) NSString *token;
 
 +(NSString *)mimeTypeForURL:(NSURL *)url;
-+(NSString *)valueForCookie:(NSString *)cookieName;
++(NSHTTPCookie *)findCookieWithName:(NSString *)cookieName forURL:(NSURL *)url;
 @end
 
 
-@implementation DataHubClient
+@implementation DHClient
 
--(DataHubClient *) initWithURL:(NSURL *)url {
+-(DHClient *) initWithURL:(NSURL *)url {
     self = [super init];
     
     if (self) {
@@ -75,7 +75,7 @@
 
     NSURL *url = [self.http.baseURL URLByAppendingPathComponent:pathPOST];
     
-    NSHTTPCookie *cookie = [DataHubClient findCookieWithName:@"csrftoken" forURL:[NSURL URLWithString:referer]];
+    NSHTTPCookie *cookie = [DHClient findCookieWithName:@"csrftoken" forURL:[NSURL URLWithString:referer]];
     NSString *token = cookie.properties[@"Value"];
     
     NSData *fileData = [NSData dataWithContentsOfURL:localeFile];
@@ -98,7 +98,7 @@
     
     NSString *formDataFile = [NSString stringWithFormat:@"Content-Disposition: form-data; name=\"data_file\"; filename=\"%@\"\r\n", localeFile.lastPathComponent];
     
-    NSString *mimeType = [DataHubClient mimeTypeForURL:localeFile];
+    NSString *mimeType = [DHClient mimeTypeForURL:localeFile];
     
     NSString *fileContentType = [NSString stringWithFormat:@"ontent-Type: %@\r\n", mimeType];
     
