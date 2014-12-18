@@ -16,7 +16,7 @@
 @property (strong, nonatomic) NSString *token;
 
 +(NSString *)mimeTypeForURL:(NSURL *)url;
-
++(NSString *)valueForCookie:(NSString *)cookieName;
 @end
 
 
@@ -78,15 +78,9 @@
     NSString *referer = [self.http.baseURL URLByAppendingPathComponent:refererPath].absoluteString;
 
     NSURL *url = [self.http.baseURL URLByAppendingPathComponent:pathPOST];
-
-    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:[NSURL URLWithString:referer]];
-    NSMutableDictionary* cd = [[NSMutableDictionary alloc] init];
     
-    for (NSHTTPCookie* cookie in cookies) {
-        cd[cookie.name] = cookie.properties[@"Value"];
-    }
-    
-    NSString *token = cd[@"csrftoken"];
+    NSHTTPCookie *cookie = [DataHubClient findCookieWithName:@"csrftoken" forURL:[NSURL URLWithString:referer]];
+    NSString *token = cookie.properties[@"Value"];
     
     NSData *fileData = [NSData dataWithContentsOfURL:localeFile];
     
@@ -143,6 +137,18 @@
     CFRelease(UTI);
     NSString *mimeType = (__bridge_transfer NSString *)mtype;
     return mimeType;
+}
+
++(NSHTTPCookie *)findCookieWithName:(NSString *)cookieName forURL:(NSURL *)url {
+    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:url];
+    
+    for (NSHTTPCookie* cookie in cookies) {
+    
+        if ([cookie.name isEqualToString:cookieName]) {
+            return cookie;
+        }
+    }
+    return nil;
 }
 
 @end
