@@ -14,6 +14,9 @@
 
 @property (strong, nonatomic) AFHTTPSessionManager *http;
 @property (strong, nonatomic) NSString *token;
+
++(NSString *)mimeTypeForURL:(NSURL *)url;
+
 @end
 
 
@@ -67,6 +70,7 @@
 }
 
 
+
 -(void) uploadFile:(NSURL *)localeFile forUser:(NSString *)user toRepository:(NSString *)repo onSuccess:(void (^)(void)) successCallback onFailure:(void (^)(NSError *err)) failureCallback
 {
     NSString *pathPOST = [NSString stringWithFormat:@"upload/%@/%@/file", user, repo];
@@ -105,11 +109,7 @@
     
     NSString *formDataFile = [NSString stringWithFormat:@"Content-Disposition: form-data; name=\"data_file\"; filename=\"%@\"\r\n", localeFile.lastPathComponent];
     
-    CFStringRef fileExtension = (__bridge CFStringRef)localeFile.lastPathComponent.pathExtension;
-    CFStringRef UTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, fileExtension, NULL);
-    CFStringRef mtype = UTTypeCopyPreferredTagWithClass(UTI, kUTTagClassMIMEType);
-    CFRelease(UTI);
-    NSString *mimeType = (__bridge_transfer NSString *)mtype;
+    NSString *mimeType = [DataHubClient mimeTypeForURL:localeFile];
     
     NSString *fileContentType = [NSString stringWithFormat:@"ontent-Type: %@\r\n", mimeType];
     
@@ -134,5 +134,15 @@
     [task resume];
 }
 
+// class methods
+
++(NSString *)mimeTypeForURL:(NSURL *)url {
+    CFStringRef fileExtension = (__bridge CFStringRef)url.lastPathComponent.pathExtension;
+    CFStringRef UTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, fileExtension, NULL);
+    CFStringRef mtype = UTTypeCopyPreferredTagWithClass(UTI, kUTTagClassMIMEType);
+    CFRelease(UTI);
+    NSString *mimeType = (__bridge_transfer NSString *)mtype;
+    return mimeType;
+}
 
 @end
