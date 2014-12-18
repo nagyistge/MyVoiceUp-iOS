@@ -10,13 +10,22 @@
 #import "TFHpple.h"
 #import  <MobileCoreServices/MobileCoreServices.h>
 
+#import "datahub.h"
+#import <THTTPClient.h>
+#import <TBinaryProtocol.h>
+
 @interface DHClient ()
 
 @property (strong, nonatomic) AFHTTPSessionManager *http;
 @property (strong, nonatomic) NSString *token;
 
+@property (strong, nonatomic) Connection *dhConnection;
+@property (strong, nonatomic) DataHubClient *dhClient;
+
 +(NSString *)mimeTypeForURL:(NSURL *)url;
 +(NSHTTPCookie *)findCookieWithName:(NSString *)cookieName forURL:(NSURL *)url;
+
+-(BOOL) dhConnectForUser:(NSString *)user withPassword:(NSString *)pass error:(NSError **)error;
 @end
 
 
@@ -54,8 +63,22 @@
                                  @"redirect_url": @"/"};
         
         [self.http POST:@"account/login" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-            successCallback();
-            NSLog(@"should be loggend in!");
+            
+            dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+            dispatch_async(globalQueue, ^(void) {
+                NSError *thriftErr = nil;
+                BOOL thriftResult = [self dhConnectForUser:user withPassword:pass error:&thriftErr];
+                
+                dispatch_async(dispatch_get_main_queue(), ^(void){
+                    if (thriftResult) {
+                        NSLog(@"should be loggend in!");
+                        successCallback();
+                    } else {
+                        failureCallback(thriftErr);
+                    }
+                });
+            });
+            
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             failureCallback(error);
         }];
@@ -122,6 +145,71 @@
     
     [task resume];
 }
+// thrift client
+
+-(BOOL) dhConnectForUser:(NSString *)user withPassword:(NSString *)pass error:(NSError **)error {
+    BOOL res = true;
+    @try {
+        NSURL *url = [self.http.baseURL URLByAppendingPathComponent:@"service"];
+        
+        // Talk to a server via HTTP, using a binary protocol
+        THTTPClient *transport = [[THTTPClient alloc] initWithURL:url];
+        TBinaryProtocol *protocol = [[TBinaryProtocol alloc]
+                                     initWithTransport:transport
+                                     strictRead:YES
+                                     strictWrite:YES];
+        
+        self.dhClient = [[DataHubClient alloc] initWithProtocol:protocol];
+        
+        ConnectionParams *conparams = [[ConnectionParams alloc] initWithClient_id:@"MIT-SurveyApp" seq_id:nil user:user password:pass repo_base:nil];
+        
+        self.dhConnection = [self.dhClient open_connection:conparams];
+        NSLog(@"Successfully establish db connection");
+    }
+    @catch (NSException *exception) {
+        //fixme
+        *error = [NSError errorWithDomain:@"DHClient" code:1 userInfo:nil];
+        res = false;
+    }
+    
+    return res;
+}
+
+-(void) uploadResponse:(NSDictionary *)response forUser:(NSString *)user toTable:(NSString *)table inRepository:(NSString *)repo onSuccess:(void (^)(void)) successCallback onFailure:(void (^)(NSError *err)) failureCallback
+{
+     NSLog(@"uploadResponse!");
+    
+    dispatch_queue_t globalQueue = dispatch_queue_create("edu.mit.datahub", DISPATCH_QUEUE_SERIAL); //dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+
+    dispatch_async(globalQueue, ^(void) {
+        BOOL res;
+
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:response options:NSJSONWritingPrettyPrinted error:nil];
+        NSString *responseData = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSString *uuid = response[@"uuid"];
+        NSString *qStr = [NSString stringWithFormat:@"insert into %@.%@.%@ values ('%@', '%@')", user, repo, table, uuid, responseData];
+        
+        @try {
+            ResultSet *results = [self.dhClient execute_sql:self.dhConnection query:qStr query_params:nil];
+            res = results.statusIsSet && results.status;
+        }
+        @catch (NSException *exception) {
+            res = false;
+            NSLog(@"exception: %@", exception);
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (res) {
+                successCallback();
+            } else {
+                failureCallback(nil); //FIXME
+            }
+        });
+        
+    });
+}
+
+
 
 // class methods
 

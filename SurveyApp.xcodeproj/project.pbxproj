@@ -16,6 +16,7 @@
 		E961F0601A40C0F200932EB4 /* DataUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E961F05F1A40C0F200932EB4 /* DataUploadViewController.swift */; };
 		E961F0621A41126E00932EB4 /* DataHubClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E961F0611A41126E00932EB4 /* DataHubClient.m */; };
 		E961F0651A423D2900932EB4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E961F0641A423D2900932EB4 /* MobileCoreServices.framework */; };
+		E961F06B1A4275B400932EB4 /* datahub.m in Sources */ = {isa = PBXBuildFile; fileRef = E961F06A1A4275B400932EB4 /* datahub.m */; };
 		E96C64D51A37C70A008A8FDE /* QImgChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96C64D41A37C70A008A8FDE /* QImgChoiceViewController.swift */; };
 		E96C64DB1A37CBC9008A8FDE /* sage_fatigue0.png in Resources */ = {isa = PBXBuildFile; fileRef = E96C64D61A37CBC9008A8FDE /* sage_fatigue0.png */; };
 		E96C64DC1A37CBC9008A8FDE /* sage_fatigue1.png in Resources */ = {isa = PBXBuildFile; fileRef = E96C64D71A37CBC9008A8FDE /* sage_fatigue1.png */; };
@@ -71,6 +72,8 @@
 		E961F0611A41126E00932EB4 /* DataHubClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataHubClient.m; path = Sinks/DataHub/DataHubClient.m; sourceTree = "<group>"; };
 		E961F0631A41128500932EB4 /* DataHubClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataHubClient.h; path = Sinks/DataHub/DataHubClient.h; sourceTree = "<group>"; };
 		E961F0641A423D2900932EB4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		E961F0691A4275B400932EB4 /* datahub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = datahub.h; path = "Sinks/DataHub/gen-cocoa/datahub.h"; sourceTree = "<group>"; };
+		E961F06A1A4275B400932EB4 /* datahub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = datahub.m; path = "Sinks/DataHub/gen-cocoa/datahub.m"; sourceTree = "<group>"; };
 		E96C64D41A37C70A008A8FDE /* QImgChoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QImgChoiceViewController.swift; sourceTree = "<group>"; };
 		E96C64D61A37CBC9008A8FDE /* sage_fatigue0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sage_fatigue0.png; path = ../../../../Downloads/sage_moodquestions/sage_fatigue0.png; sourceTree = "<group>"; };
 		E96C64D71A37CBC9008A8FDE /* sage_fatigue1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sage_fatigue1.png; path = ../../../../Downloads/sage_moodquestions/sage_fatigue1.png; sourceTree = "<group>"; };
@@ -151,6 +154,8 @@
 		E91F3AA11A3DE7A300081821 /* Sinks */ = {
 			isa = PBXGroup;
 			children = (
+				E961F0691A4275B400932EB4 /* datahub.h */,
+				E961F06A1A4275B400932EB4 /* datahub.m */,
 				E91F3A9F1A3DE79100081821 /* Ohmage2Client.m */,
 				E91F3AA31A3DE7D600081821 /* Ohmage2Client.h */,
 				E9EA16E71A3DF24B00010DDD /* Ohmage2Sink.swift */,
@@ -426,6 +431,7 @@
 				E9B24AAF1A2FBD9000903FEE /* AppDelegate.swift in Sources */,
 				E9B24AF11A3516B400903FEE /* QTextChoicesViewController.swift in Sources */,
 				E96C64E31A38EA3F008A8FDE /* Answer.swift in Sources */,
+				E961F06B1A4275B400932EB4 /* datahub.m in Sources */,
 				E961F0601A40C0F200932EB4 /* DataUploadViewController.swift in Sources */,
 				E961F0621A41126E00932EB4 /* DataHubClient.m in Sources */,
 				E92B102C1A364F9F005BFDFE /* HomeViewController.swift in Sources */,
