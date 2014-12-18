@@ -37,9 +37,6 @@
 {
     [self.http GET:@"account/login" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         //now we have to parse the http response
-        NSString *html = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSLog(@"%@", html);
-        
         TFHpple *doc = [[TFHpple alloc] initWithHTMLData:responseObject];
         NSArray *elements = [doc searchWithXPathQuery:@"//form[@class='form-signin']/input[@name='csrfmiddlewaretoken']"];
         
@@ -50,7 +47,6 @@
         
         TFHppleElement *elm = elements[0];
         self.token = [elm objectForKey:@"value"];
-        NSLog(@"val: %@", self.token);
         
         NSDictionary *params = @{@"csrfmiddlewaretoken": self.token,
                                  @"login_id": user,
@@ -88,7 +84,6 @@
     [req setHTTPMethod:@"POST"];
     
     NSString *buid = [NSUUID UUID].UUIDString;
-    
     NSString *boundary = [NSString stringWithFormat:@"----MIT-AppSurvey-%@", buid];
     
     NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
