@@ -42,6 +42,68 @@
     return self;
 }
 
+-(void) registerUser:(NSString *)username withEmail:(NSString *)email andPassword:(NSString *)password onSuccess:(void (^)(void)) successCallback onFailure:(void (^)(NSError *err)) failureCallback
+{
+    [self.http GET:@"account/register" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSURL *fullURL = [self.http.baseURL URLByAppendingPathComponent:@"account/register"];
+
+        NSString *token = [DHClient findCookieWithName:@"csrftoken" forURL:fullURL].properties[@"Value"];
+        
+        if (token == nil) {
+            NSError *err = [NSError errorWithDomain:@"Datahub"
+                                               code:1
+                                           userInfo:@{ NSLocalizedDescriptionKey:
+                                                           NSLocalizedString(@"Internal error :-(", nil) }];
+            failureCallback(err);
+            return;
+        }
+        
+        NSDictionary *params = @{@"username": username,
+                                 @"email": email,
+                                 @"password": password,
+                                 @"csrfmiddlewaretoken": token,
+                                 @"redirect_url": @"/"};
+        
+        [self.http POST:@"account/register" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+
+            TFHpple *doc = [[TFHpple alloc] initWithHTMLData:responseObject];
+            NSArray *elements = [doc searchWithXPathQuery:@"//div[@id='error']/span[@class='error']"];
+            
+            if (elements.count > 0) {
+
+                NSInteger errCode = 100;
+                
+                NSString *reason = [elements[0] text];
+                NSString *suggestions = @"Try different username/email!";
+                if ([reason isEqualToString:@"Username already taken."]) {
+                    suggestions = @"Please use a different username!";
+                    errCode += 1;
+                } else if ([reason hasPrefix:@"Account with the email address"]) {
+                    suggestions = @"Please use a different email address!";
+                    errCode += 2;
+                }
+                
+                NSDictionary *info =
+                    @{NSLocalizedDescriptionKey: NSLocalizedString(@"Could not register user.", nil),
+                      NSLocalizedFailureReasonErrorKey: NSLocalizedString(reason, nil),
+                      NSLocalizedRecoverySuggestionErrorKey: NSLocalizedString(suggestions, nil)};
+                
+                NSError *err = [NSError errorWithDomain:@"DataHub" code:errCode userInfo:info];
+                failureCallback(err);
+
+            } else {
+                successCallback();
+            }
+            
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            failureCallback(error);
+        }];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failureCallback(error);
+    }];
+}
+
 -(void) loginForUser:(NSString *)user withPassword:(NSString *)pass onSuccess:(void (^)(void)) successCallback onFailure:(void (^)(NSError *err)) failureCallback
 {
     [self.http GET:@"account/login" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {

@@ -14,6 +14,8 @@
 
 -(DHClient *) initWithURL:(NSURL *)url;
 
+-(void) registerUser:(NSString *)username withEmail:(NSString *)email andPassword:(NSString *)password onSuccess:(void (^)(void)) successCallback onFailure:(void (^)(NSError *err)) failureCallback;
+
 -(void) loginForUser:(NSString *)user withPassword:(NSString *)pass onSuccess:(void (^)(void)) successCallback onFailure:(void (^)(NSError *err)) failureCallback;
 ;
 
