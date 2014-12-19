@@ -366,7 +366,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q3h-pU-vEd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1532" y="755"/>
+            <point key="canvasLocation" x="1355" y="795"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="42G-Fx-ISu">
@@ -454,7 +454,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GmD-Rr-ZGN" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="939" y="1699"/>
+            <point key="canvasLocation" x="1491" y="2891"/>
         </scene>
         <!--Audio View Controller-->
         <scene sceneID="8fJ-td-6RU">
@@ -637,7 +637,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fyF-00-TUs" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-295" y="2074"/>
+            <point key="canvasLocation" x="137" y="2891"/>
         </scene>
         <!--Bool View Controller-->
         <scene sceneID="sPx-Ns-cbz">
@@ -842,7 +842,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4AJ-4n-sGM" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2425" y="1661"/>
+            <point key="canvasLocation" x="2137" y="2891"/>
         </scene>
         <!--Img Choice View Controller-->
         <scene sceneID="Jh3-v4-Y1u">
@@ -967,7 +967,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L4Z-4z-nAM" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3061" y="1699"/>
+            <point key="canvasLocation" x="2813" y="2875"/>
         </scene>
         <!--Bool Answer View Controller-->
         <scene sceneID="o6J-Nx-Glf">
@@ -1168,6 +1168,12 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="blabla" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKi-pj-xEV">
+                                        <rect key="frame" x="62" y="195" width="47" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.63921570780000003" green="0.1215686277" blue="0.2039215714" alpha="1" colorSpace="calibratedRGB"/>
@@ -1186,6 +1192,11 @@
                                     <constraint firstItem="4aS-tw-QoM" firstAttribute="centerY" secondItem="hpO-Ev-e4g" secondAttribute="centerY" constant="0.5" id="j5X-Qa-QVD"/>
                                     <constraint firstItem="4aS-tw-QoM" firstAttribute="top" secondItem="Lzu-bU-jpH" secondAttribute="bottom" constant="15" id="p8z-id-bh9"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="AKi-pj-xEV"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1213,7 +1224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E4n-vD-ypT" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1785" y="1781"/>
+            <point key="canvasLocation" x="817" y="2909"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Fqb-rU-hGz">
