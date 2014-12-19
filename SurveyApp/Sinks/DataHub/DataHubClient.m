@@ -241,7 +241,8 @@
 {
      NSLog(@"uploadResponse!");
     
-    dispatch_queue_t globalQueue = dispatch_queue_create("edu.mit.datahub", DISPATCH_QUEUE_SERIAL); //dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    //dispatch_queue_t globalQueue = dispatch_queue_create("edu.mit.datahub", DISPATCH_QUEUE_SERIAL);
+    dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
     dispatch_async(globalQueue, ^(void) {
         BOOL res;
@@ -271,6 +272,47 @@
     });
 }
 
+-(void) createRepo:(NSString *)repo andShareWith:(NSString *)user onSuccess:(void (^)(void)) successCallback onFailure:(void (^)(NSError *err)) failureCallback
+{
+    dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(globalQueue, ^(void) {
+        BOOL res = true;
+        NSError *err = nil;
+        @try {
+            [self.dhClient create_repo:self.dhConnection repo_name:repo];
+            //check resiult? it seems we always get an exception on any error
+            
+            if (user != nil) {
+                //grant accesss of repo to user
+                NSString *qstr = [NSString stringWithFormat:@"grant usage on schema %@ to %@;", repo, user];
+                [self.dhClient execute_sql:self.dhConnection query:qstr query_params:nil];
+                
+                //Fixme: way to many permisions
+                qstr = [NSString stringWithFormat:@"grant all on all tables in schema %@ to %@;", repo, user];
+                [self.dhClient execute_sql:self.dhConnection query:qstr query_params:nil];
+            }
+            
+        }
+        @catch (NSException *exception) {
+            res = false;
+            NSDictionary *info = @{NSLocalizedDescriptionKey: NSLocalizedString(@"Could create shared repository", nil),
+                                   NSLocalizedFailureReasonErrorKey: NSLocalizedString(exception.description, nil)};
+            //FIXME: exception to error is using exception.description which is crytic
+            err = [NSError errorWithDomain:@"DataHub" code:50 userInfo:info];
+            NSLog(@"exception: %@", exception);
+        }
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (res) {
+                successCallback();
+            } else {
+                failureCallback(err);
+            }
+        });
+
+     
+     });
+}
 
 
 // class methods

@@ -23,6 +23,8 @@
 
 -(void) uploadResponse:(NSDictionary *)respones forUser:(NSString *)user toTable:(NSString *)table inRepository:(NSString *)repo onSuccess:(void (^)(void)) successCallback onFailure:(void (^)(NSError *err)) failureCallback;
 
+-(void) createRepo:(NSString *)repo andShareWith:(NSString *)user onSuccess:(void (^)(void)) successCallback onFailure:(void (^)(NSError *err)) failureCallback;
+
 @end
 
 
