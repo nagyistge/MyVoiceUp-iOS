@@ -314,6 +314,38 @@
      });
 }
 
+-(void) createTable:(NSString *)table inRepo:(NSString *)repo withSchema:(NSString *)schema onSuccess:(void (^)(void)) successCallback onFailure:(void (^)(NSError *err)) failureCallback
+{
+    dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(globalQueue, ^(void) {
+        BOOL res = true;
+        NSError *err = nil;
+        @try {
+           
+            NSString *qstr = [NSString stringWithFormat:@"CREATE TABLE %@.%@ (%@)", repo, table, schema];
+            [self.dhClient execute_sql:self.dhConnection query:qstr query_params:nil];
+           
+            
+        }
+        @catch (NSException *exception) {
+            res = false;
+            NSDictionary *info = @{NSLocalizedDescriptionKey: NSLocalizedString(@"Could create table", nil),
+                                   NSLocalizedFailureReasonErrorKey: NSLocalizedString(exception.description, nil)};
+            //FIXME: exception to error is using exception.description which is crytic
+            err = [NSError errorWithDomain:@"DataHub" code:50 userInfo:info];
+            NSLog(@"exception: %@", exception);
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (res) {
+                successCallback();
+            } else {
+                failureCallback(err);
+            }
+        });
+    });
+}
+
 
 // class methods
 

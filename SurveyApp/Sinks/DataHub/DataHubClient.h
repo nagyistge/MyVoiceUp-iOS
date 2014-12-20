@@ -25,6 +25,8 @@
 
 -(void) createRepo:(NSString *)repo andShareWith:(NSString *)user onSuccess:(void (^)(void)) successCallback onFailure:(void (^)(NSError *err)) failureCallback;
 
+-(void) createTable:(NSString *)table  inRepo:(NSString *)repo withSchema:(NSString *)schema onSuccess:(void (^)(void)) successCallback onFailure:(void (^)(NSError *err)) failureCallback;
+
 @end
 
 
