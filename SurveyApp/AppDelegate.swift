@@ -34,9 +34,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ConsentViewControllerDele
         return true
     }
     
+    func setRootVC(vc: UIViewController) {
+        window?.rootViewController = vc
+    }
     
     func didGiveConsent(vc: ConsentViewController) {
-        //fixme: nice transition anomation
         
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setBool(true, forKey: "consent")
@@ -44,7 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ConsentViewControllerDele
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let homeVC = storyboard.instantiateViewControllerWithIdentifier("Root") as UIViewController
-        window?.rootViewController = homeVC
+
+        UIView.transitionFromView(window!.rootViewController!.view!, toView: homeVC.view, duration: 0.7, options: .TransitionCrossDissolve) { (b: Bool) -> Void in
+            self.setRootVC(homeVC)
+        }
     }
 
 }
