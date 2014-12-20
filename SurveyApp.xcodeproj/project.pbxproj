@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DCC89C76E6AE9D432C78CDCF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E4080ED3DC4AA4306B0CD1 /* libPods.a */; };
+		E909B14E1A44D5260035EC8A /* ConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909B14D1A44D5260035EC8A /* ConsentViewController.swift */; };
+		E909B1501A45081E0035EC8A /* consent.html in Resources */ = {isa = PBXBuildFile; fileRef = E909B14F1A45081E0035EC8A /* consent.html */; };
 		E91F3AA01A3DE79100081821 /* Ohmage2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A9F1A3DE79100081821 /* Ohmage2Client.m */; };
 		E92B102A1A363ABA005BFDFE /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92B10291A363ABA005BFDFE /* MediaPlayer.framework */; };
 		E92B102C1A364F9F005BFDFE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92B102B1A364F9F005BFDFE /* HomeViewController.swift */; };
@@ -61,6 +63,8 @@
 		86E4080ED3DC4AA4306B0CD1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE3DBFE6C5B04195FF1E4221 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BEDF7E2CE8A08A079A220AE0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E909B14D1A44D5260035EC8A /* ConsentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentViewController.swift; sourceTree = "<group>"; };
+		E909B14F1A45081E0035EC8A /* consent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = consent.html; path = Data/consent.html; sourceTree = "<group>"; };
 		E91F3A9E1A3DE79000081821 /* SurveyApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SurveyApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		E91F3A9F1A3DE79100081821 /* Ohmage2Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ohmage2Client.m; path = Sinks/Ohmage2/Ohmage2Client.m; sourceTree = "<group>"; };
 		E91F3AA31A3DE7D600081821 /* Ohmage2Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ohmage2Client.h; path = Sinks/Ohmage2/Ohmage2Client.h; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 				E91F3AA11A3DE7A300081821 /* Sinks */,
 				E9B24AD21A32202A00903FEE /* Model */,
 				E9B24AAE1A2FBD9000903FEE /* AppDelegate.swift */,
+				E909B14D1A44D5260035EC8A /* ConsentViewController.swift */,
 				E9B24AB01A2FBD9000903FEE /* SurveyViewController.swift */,
 				E92B102B1A364F9F005BFDFE /* HomeViewController.swift */,
 				E96C64E61A392E8F008A8FDE /* MediaBrowserViewController.swift */,
@@ -225,6 +230,7 @@
 				E96C64DA1A37CBC9008A8FDE /* sage_fatigue4.png */,
 				E9B24AAD1A2FBD9000903FEE /* Info.plist */,
 				E9B24AE21A322E5000903FEE /* Questions.json */,
+				E909B14F1A45081E0035EC8A /* consent.html */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -360,6 +366,7 @@
 				E96C64DE1A37CBC9008A8FDE /* sage_fatigue3.png in Resources */,
 				E96C64DF1A37CBC9008A8FDE /* sage_fatigue4.png in Resources */,
 				E96C64DD1A37CBC9008A8FDE /* sage_fatigue2.png in Resources */,
+				E909B1501A45081E0035EC8A /* consent.html in Resources */,
 				E9B24AE31A322E5000903FEE /* Questions.json in Resources */,
 				E9B24ABD1A2FBD9000903FEE /* LaunchScreen.xib in Resources */,
 				E9B24ABA1A2FBD9000903FEE /* Images.xcassets in Resources */,
@@ -414,6 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E909B14E1A44D5260035EC8A /* ConsentViewController.swift in Sources */,
 				E9B24AD41A32206500903FEE /* Question.swift in Sources */,
 				E96C64E71A392E8F008A8FDE /* MediaBrowserViewController.swift in Sources */,
 				E91F3AA01A3DE79100081821 /* Ohmage2Client.m in Sources */,
