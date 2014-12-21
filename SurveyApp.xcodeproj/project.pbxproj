@@ -47,6 +47,8 @@
 		E9B24AFE1A362CD500903FEE /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24AFD1A362CD500903FEE /* Alamofire.swift */; };
 		E9B24B011A362CE900903FEE /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24B001A362CE900903FEE /* SwiftyJSON.swift */; };
 		E9EA16E81A3DF24B00010DDD /* Ohmage2Sink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EA16E71A3DF24B00010DDD /* Ohmage2Sink.swift */; };
+		E9F657821A461D07004FDBCA /* DataHubUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9F657811A461D07004FDBCA /* DataHubUI.storyboard */; };
+		E9F657841A461D2A004FDBCA /* DataHubSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F657831A461D2A004FDBCA /* DataHubSetup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +114,8 @@
 		E9B24AFF1A362CE900903FEE /* SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiftyJSON.h; path = "Alamofire-SwiftyJSON/SwiftyJSON/Source/SwiftyJSON.h"; sourceTree = "<group>"; };
 		E9B24B001A362CE900903FEE /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = "Alamofire-SwiftyJSON/SwiftyJSON/Source/SwiftyJSON.swift"; sourceTree = "<group>"; };
 		E9EA16E71A3DF24B00010DDD /* Ohmage2Sink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ohmage2Sink.swift; path = Sinks/Ohmage2/Ohmage2Sink.swift; sourceTree = "<group>"; };
+		E9F657811A461D07004FDBCA /* DataHubUI.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = DataHubUI.storyboard; path = Sinks/DataHub/DataHubUI.storyboard; sourceTree = "<group>"; };
+		E9F657831A461D2A004FDBCA /* DataHubSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHubSetup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,8 @@
 				E9EA16E71A3DF24B00010DDD /* Ohmage2Sink.swift */,
 				E961F0611A41126E00932EB4 /* DataHubClient.m */,
 				E961F0631A41128500932EB4 /* DataHubClient.h */,
+				E9F657811A461D07004FDBCA /* DataHubUI.storyboard */,
+				E9F657831A461D2A004FDBCA /* DataHubSetup.swift */,
 			);
 			name = Sinks;
 			sourceTree = "<group>";
@@ -366,6 +372,7 @@
 				E96C64DE1A37CBC9008A8FDE /* sage_fatigue3.png in Resources */,
 				E96C64DF1A37CBC9008A8FDE /* sage_fatigue4.png in Resources */,
 				E96C64DD1A37CBC9008A8FDE /* sage_fatigue2.png in Resources */,
+				E9F657821A461D07004FDBCA /* DataHubUI.storyboard in Resources */,
 				E909B1501A45081E0035EC8A /* consent.html in Resources */,
 				E9B24AE31A322E5000903FEE /* Questions.json in Resources */,
 				E9B24ABD1A2FBD9000903FEE /* LaunchScreen.xib in Resources */,
@@ -436,6 +443,7 @@
 				E9B24AFE1A362CD500903FEE /* Alamofire.swift in Sources */,
 				E9B24AF51A361EF600903FEE /* QAudioViewController.swift in Sources */,
 				E9EA16E81A3DF24B00010DDD /* Ohmage2Sink.swift in Sources */,
+				E9F657841A461D2A004FDBCA /* DataHubSetup.swift in Sources */,
 				E9B24AAF1A2FBD9000903FEE /* AppDelegate.swift in Sources */,
 				E9B24AF11A3516B400903FEE /* QTextChoicesViewController.swift in Sources */,
 				E96C64E31A38EA3F008A8FDE /* Answer.swift in Sources */,
