@@ -21,16 +21,19 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - hpple (0.2.0)
+  - SVProgressHUD (1.1.2)
   - thrift (0.9.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - hpple (~> 0.2)
+  - SVProgressHUD (~> 1.1)
   - thrift (~> 0.9)
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
   hpple: f4eb7c21a8db83ec264e5d614ec7509e10e5adec
+  SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
   thrift: b31bac6c80965a986810a4fc015890b6426ee078
 
 COCOAPODS: 0.35.0
