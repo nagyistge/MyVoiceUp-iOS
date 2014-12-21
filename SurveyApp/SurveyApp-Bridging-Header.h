@@ -4,3 +4,5 @@
 
 #import "Ohmage2Client.h"
 #import "DataHubClient.h"
+
+#import "SVProgressHUD.h"
