@@ -49,6 +49,8 @@
 		E9EA16E81A3DF24B00010DDD /* Ohmage2Sink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EA16E71A3DF24B00010DDD /* Ohmage2Sink.swift */; };
 		E9F657821A461D07004FDBCA /* DataHubUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9F657811A461D07004FDBCA /* DataHubUI.storyboard */; };
 		E9F657841A461D2A004FDBCA /* DataHubSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F657831A461D2A004FDBCA /* DataHubSetup.swift */; };
+		E9F657861A49B230004FDBCA /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F657851A49B230004FDBCA /* Campaign.swift */; };
+		E9F657881A49B3C6004FDBCA /* Campaign.json in Resources */ = {isa = PBXBuildFile; fileRef = E9F657871A49B3C6004FDBCA /* Campaign.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,8 @@
 		E9EA16E71A3DF24B00010DDD /* Ohmage2Sink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ohmage2Sink.swift; path = Sinks/Ohmage2/Ohmage2Sink.swift; sourceTree = "<group>"; };
 		E9F657811A461D07004FDBCA /* DataHubUI.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = DataHubUI.storyboard; path = Sinks/DataHub/DataHubUI.storyboard; sourceTree = "<group>"; };
 		E9F657831A461D2A004FDBCA /* DataHubSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHubSetup.swift; sourceTree = "<group>"; };
+		E9F657851A49B230004FDBCA /* Campaign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Campaign.swift; path = SurveyApp/Model/Campaign.swift; sourceTree = "<group>"; };
+		E9F657871A49B3C6004FDBCA /* Campaign.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Campaign.json; path = Data/Campaign.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +232,7 @@
 		E9B24AAC1A2FBD9000903FEE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E9F657871A49B3C6004FDBCA /* Campaign.json */,
 				E96C64E01A38B844008A8FDE /* typicons.ttf */,
 				E96C64D61A37CBC9008A8FDE /* sage_fatigue0.png */,
 				E96C64D71A37CBC9008A8FDE /* sage_fatigue1.png */,
@@ -266,6 +271,7 @@
 				E9B24AEE1A34C49E00903FEE /* DataStore.swift */,
 				E96C64E21A38EA3F008A8FDE /* Answer.swift */,
 				E96C64E41A38EA51008A8FDE /* Response.swift */,
+				E9F657851A49B230004FDBCA /* Campaign.swift */,
 			);
 			name = Model;
 			path = ..;
@@ -368,6 +374,7 @@
 			files = (
 				E96C64DB1A37CBC9008A8FDE /* sage_fatigue0.png in Resources */,
 				E96C64DC1A37CBC9008A8FDE /* sage_fatigue1.png in Resources */,
+				E9F657881A49B3C6004FDBCA /* Campaign.json in Resources */,
 				E9B24AB81A2FBD9000903FEE /* Main.storyboard in Resources */,
 				E96C64DE1A37CBC9008A8FDE /* sage_fatigue3.png in Resources */,
 				E96C64DF1A37CBC9008A8FDE /* sage_fatigue4.png in Resources */,
@@ -451,6 +458,7 @@
 				E961F0601A40C0F200932EB4 /* DataUploadViewController.swift in Sources */,
 				E961F0621A41126E00932EB4 /* DataHubClient.m in Sources */,
 				E92B102C1A364F9F005BFDFE /* HomeViewController.swift in Sources */,
+				E9F657861A49B230004FDBCA /* Campaign.swift in Sources */,
 				E96C64D51A37C70A008A8FDE /* QImgChoiceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
