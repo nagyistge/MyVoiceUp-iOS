@@ -10,6 +10,27 @@ import Foundation
 
 private let _singelton = DataStore()
 
+extension JSON {
+    var date: NSDate? {
+        get {
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.locale = NSLocale(localeIdentifier: "C")
+            dateFormatter.timeZone = NSCalendar.currentCalendar().timeZone
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            
+            if let s = self.string {
+                return dateFormatter.dateFromString(s)
+            } else {
+                return nil
+            }
+        }
+    }
+    
+    var dateValue: NSDate {
+        return self.date!
+    }
+}
+
 class MediaFile {
     var uuid: String
     var url: NSURL
@@ -179,6 +200,7 @@ class DataStore {
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.locale = NSLocale(localeIdentifier: "C")
+        
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
         
         json["timestap"] = dateFormatter.stringFromDate(response.timestamp)
@@ -214,5 +236,51 @@ class DataStore {
             json["filename"] = a.value.url.lastPathComponent!
         }
         return json
+    }
+    
+    private func surveyTemplate4JSON(json: JSON) -> Campaign.SurveyTemplate? {
+        let date = json["date"].date
+        let ttl = json["ttl"].number?.integerValue
+        
+        switch (date, ttl) {
+        case (.Some(let d), .Some(let t)):
+         return Campaign.SurveyTemplate(date: d, ttl: t, questions: [String]())
+            
+        default:
+            return nil
+        }
+    }
+    
+    private func campaign4JSON(json: JSON) -> Campaign? {
+        if let id = json["id"].string {
+            let c = Campaign(id: id)
+            c.author = json["author"].string
+            c.info = json["info"].string
+            
+            c.questions = json["quetions"].arrayValue.map { (json: JSON) -> Question? in
+                return Question.fromJSON(json)
+            }.filter { $0 != nil }.map{ $0! }
+            
+            c.templates = json["surveys"].arrayValue.map { self.surveyTemplate4JSON($0) }.filter {$0 != nil}.map{ $0! }
+            
+            return c
+        }
+        
+        return nil
+    }
+    
+    func loadCampaign() -> Campaign? {
+        
+        let path = NSBundle(forClass:AppDelegate.self).pathForResource("Campaign", ofType: "json")
+
+        let c = path.map { (p: String) -> NSData? in
+            return NSData(contentsOfFile: p)
+        }?.map { (d: NSData) -> JSON? in
+            return JSON(data: d)
+        }?.map { (j: JSON) -> Campaign? in
+            return self.campaign4JSON(j)
+        }
+        
+        return c ?? nil
     }
 }

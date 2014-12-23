@@ -31,5 +31,11 @@ class Survey {
         }
     }
 
+    init(uuid: String, id: String, date: NSDate, questions: [Question] = [Question]()) {
+        self.uuid = uuid
+        self.identifier = id
+        self.date = date
+        self.questions = questions
+    }
     
 }
