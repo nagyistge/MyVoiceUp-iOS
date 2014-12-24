@@ -39,6 +39,19 @@ class Campaign {
             return deltaT >= 0 && deltaT < template.ttl
         }.sorted { (a, b) in a.ttl > b.ttl }
     }
+    
+    func surveyForTemplate(template: SurveyTemplate) -> Survey? {
+        
+        let Q = self.questions.map{ $0.identifier }
+        let uuid = NSUUID().UUIDString
+        
+        let qs = template.questions.map{ find(Q, $0) }.filter{ $0 != nil }.map{ self.questions[$0!] }
+        
+        if qs.count == template.questions.count {
+            //fixme: the id is probably not right here
+            return Survey(uuid: uuid, id: self.indentifier, date: template.date, questions: qs)
+        } else {
+            return nil
         }
     }
     
