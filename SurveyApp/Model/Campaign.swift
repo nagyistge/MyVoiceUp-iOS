@@ -30,12 +30,15 @@ class Campaign {
 
     func templatesForDate(date: NSDate) -> [SurveyTemplate] {
         let gregorian = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        let inDays = gregorian.ordinalityOfUnit(.DayCalendarUnit, inUnit: .EraCalendarUnit, forDate: date)
-        
+        gregorian.timeZone = NSTimeZone(name: "UTC")!
+        let dateInDays = gregorian.ordinalityOfUnit(.DayCalendarUnit, inUnit: .EraCalendarUnit, forDate: date)
+
         return self.templates.filter { template in
             let tempDays = gregorian.ordinalityOfUnit(.DayCalendarUnit, inUnit: .EraCalendarUnit, forDate: template.date)
-            let deltaT = inDays - tempDays
+            let deltaT = dateInDays - tempDays
             return deltaT >= 0 && deltaT < template.ttl
+        }.sorted { (a, b) in a.ttl > b.ttl }
+    }
         }
     }
     

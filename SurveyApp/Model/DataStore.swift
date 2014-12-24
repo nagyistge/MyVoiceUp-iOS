@@ -15,7 +15,7 @@ extension JSON {
         get {
             let dateFormatter = NSDateFormatter()
             dateFormatter.locale = NSLocale(localeIdentifier: "C")
-            dateFormatter.timeZone = NSCalendar.currentCalendar().timeZone
+            dateFormatter.timeZone = NSTimeZone(name: "UTC")!
             dateFormatter.dateFormat = "yyyy-MM-dd"
             
             if let s = self.string {
