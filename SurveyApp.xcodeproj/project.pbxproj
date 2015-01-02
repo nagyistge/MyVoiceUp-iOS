@@ -66,6 +66,7 @@
 		E9C1697F1A55EFEE002F6019 /* sage_sleep2.png in Resources */ = {isa = PBXBuildFile; fileRef = E9C169661A55EFEE002F6019 /* sage_sleep2.png */; };
 		E9C169801A55EFEE002F6019 /* sage_sleep3.png in Resources */ = {isa = PBXBuildFile; fileRef = E9C169671A55EFEE002F6019 /* sage_sleep3.png */; };
 		E9C169811A55EFEE002F6019 /* sage_sleep4.png in Resources */ = {isa = PBXBuildFile; fileRef = E9C169681A55EFEE002F6019 /* sage_sleep4.png */; };
+		E9C169851A56D984002F6019 /* DataSink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C169841A56D984002F6019 /* DataSink.swift */; };
 		E9EA16E81A3DF24B00010DDD /* Ohmage2Sink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EA16E71A3DF24B00010DDD /* Ohmage2Sink.swift */; };
 		E9F657821A461D07004FDBCA /* DataHubUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9F657811A461D07004FDBCA /* DataHubUI.storyboard */; };
 		E9F657841A461D2A004FDBCA /* DataHubSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F657831A461D2A004FDBCA /* DataHubSetup.swift */; };
@@ -155,6 +156,7 @@
 		E9C169661A55EFEE002F6019 /* sage_sleep2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sage_sleep2.png; path = "Sage Images/sage_sleep2.png"; sourceTree = SOURCE_ROOT; };
 		E9C169671A55EFEE002F6019 /* sage_sleep3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sage_sleep3.png; path = "Sage Images/sage_sleep3.png"; sourceTree = SOURCE_ROOT; };
 		E9C169681A55EFEE002F6019 /* sage_sleep4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sage_sleep4.png; path = "Sage Images/sage_sleep4.png"; sourceTree = SOURCE_ROOT; };
+		E9C169841A56D984002F6019 /* DataSink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataSink.swift; path = Sinks/DataSink.swift; sourceTree = "<group>"; };
 		E9EA16E71A3DF24B00010DDD /* Ohmage2Sink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ohmage2Sink.swift; path = Sinks/Ohmage2/Ohmage2Sink.swift; sourceTree = "<group>"; };
 		E9F657811A461D07004FDBCA /* DataHubUI.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = DataHubUI.storyboard; path = Sinks/DataHub/DataHubUI.storyboard; sourceTree = "<group>"; };
 		E9F657831A461D2A004FDBCA /* DataHubSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHubSetup.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				E961F0631A41128500932EB4 /* DataHubClient.h */,
 				E9F657811A461D07004FDBCA /* DataHubUI.storyboard */,
 				E9F657831A461D2A004FDBCA /* DataHubSetup.swift */,
+				E9C169841A56D984002F6019 /* DataSink.swift */,
 			);
 			name = Sinks;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				E9B24AF51A361EF600903FEE /* QAudioViewController.swift in Sources */,
 				E9EA16E81A3DF24B00010DDD /* Ohmage2Sink.swift in Sources */,
 				E9F657841A461D2A004FDBCA /* DataHubSetup.swift in Sources */,
+				E9C169851A56D984002F6019 /* DataSink.swift in Sources */,
 				E9B24AAF1A2FBD9000903FEE /* AppDelegate.swift in Sources */,
 				E9B24AF11A3516B400903FEE /* QTextChoicesViewController.swift in Sources */,
 				E96C64E31A38EA3F008A8FDE /* Answer.swift in Sources */,

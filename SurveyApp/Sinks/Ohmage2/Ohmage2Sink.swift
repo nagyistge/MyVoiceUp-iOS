@@ -8,20 +8,6 @@
 
 import Foundation
 
-protocol DataSinkDelegate {
-    func dataSink(sink: DataSink, uploadStartedForResponse response: Response)
-    func dataSink(sink: DataSink, uploadDoneForResponse response: Response)
-    func dataSink(sink: DataSink, errorDuringTransfer error: NSError)
-}
-
-class DataSink {
-    var delegate: DataSinkDelegate?
-    
-    init() {
-        
-    }
-}
-
 
 class Ohmage2Sink: DataSink {
     
