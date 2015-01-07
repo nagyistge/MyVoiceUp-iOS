@@ -17,8 +17,17 @@ protocol DataSinkDelegate {
 
 class DataSink {
     var delegate: DataSinkDelegate?
+    var id: String
     
-    init() {
-        
+    init(id: String) {
+        self.id = id
+    }
+    
+    class func fromJSON(data: JSON) -> DataSink? {
+        return nil;
+    }
+    
+    func toJSON() -> NSDictionary {
+        return NSDictionary()
     }
 }
