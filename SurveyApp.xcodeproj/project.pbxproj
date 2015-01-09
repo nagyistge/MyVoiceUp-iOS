@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DCC89C76E6AE9D432C78CDCF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E4080ED3DC4AA4306B0CD1 /* libPods.a */; };
 		E906363D1A600DCC0029D090 /* Functional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E906363C1A600DCC0029D090 /* Functional.swift */; };
+		E906363F1A6020D40029D090 /* DataHubSink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E906363E1A6020D40029D090 /* DataHubSink.swift */; };
 		E909B14E1A44D5260035EC8A /* ConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909B14D1A44D5260035EC8A /* ConsentViewController.swift */; };
 		E909B1501A45081E0035EC8A /* consent.html in Resources */ = {isa = PBXBuildFile; fileRef = E909B14F1A45081E0035EC8A /* consent.html */; };
 		E91F3AA01A3DE79100081821 /* Ohmage2Client.m in Sources */ = {isa = PBXBuildFile; fileRef = E91F3A9F1A3DE79100081821 /* Ohmage2Client.m */; };
@@ -91,6 +92,7 @@
 		AE3DBFE6C5B04195FF1E4221 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BEDF7E2CE8A08A079A220AE0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E906363C1A600DCC0029D090 /* Functional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functional.swift; sourceTree = "<group>"; };
+		E906363E1A6020D40029D090 /* DataHubSink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHubSink.swift; sourceTree = "<group>"; };
 		E909B14D1A44D5260035EC8A /* ConsentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentViewController.swift; sourceTree = "<group>"; };
 		E909B14F1A45081E0035EC8A /* consent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = consent.html; path = Data/consent.html; sourceTree = "<group>"; };
 		E91F3A9E1A3DE79000081821 /* SurveyApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SurveyApp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				E9F657811A461D07004FDBCA /* DataHubUI.storyboard */,
 				E9F657831A461D2A004FDBCA /* DataHubSetup.swift */,
 				E9C169841A56D984002F6019 /* DataSink.swift */,
+				E906363E1A6020D40029D090 /* DataHubSink.swift */,
 			);
 			name = Sinks;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				E96C64E71A392E8F008A8FDE /* MediaBrowserViewController.swift in Sources */,
 				E91F3AA01A3DE79100081821 /* Ohmage2Client.m in Sources */,
 				E9B24AEF1A34C49E00903FEE /* DataStore.swift in Sources */,
+				E906363F1A6020D40029D090 /* DataHubSink.swift in Sources */,
 				E9B24AB11A2FBD9000903FEE /* SurveyViewController.swift in Sources */,
 				E9B24B011A362CE900903FEE /* SwiftyJSON.swift in Sources */,
 				E92B10301A379B84005BFDFE /* QRangeViewController.swift in Sources */,
