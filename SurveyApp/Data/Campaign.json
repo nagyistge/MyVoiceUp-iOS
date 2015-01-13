@@ -1,6 +1,12 @@
 {
     "id": "testios",
     "author": "MIT Voice and Depression study team",
+    "sink": {
+        "type": "DataHub",
+        "url": "http://localhost:8000",
+        "repo": "MyVoiceUp",
+        "shareWith": "gicmo"
+    },
     "questions": [{"question_id": "audio1",
                    "question_type": "audio_recording",
                    "question_text": "Sample audio recording test"},
