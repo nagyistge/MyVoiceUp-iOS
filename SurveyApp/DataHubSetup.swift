@@ -30,15 +30,18 @@ class DHSetup : SinkSetup {
     var state = State.Init
     var delegate: DHSetupDelegate?
 
+    var repository: String
+    var sharedUser: String
+
     override class func fromJSON(data: JSON) -> Result<SinkSetup> {
 
         let endpoint = data["url"].url
         let repo = data["repo"].string
-        let sharedUser = data["shareWith"].string
+        let user = data["shareWith"].string
 
-        switch (endpoint, repo, sharedUser) {
+        switch (endpoint, repo, user) {
         case (.Some(let u), .Some(let r), .Some(let s)):
-            let dhss = DHSetup(url: u)
+            let dhss = DHSetup(url: u, repo: r, user: s)
             return Result<SinkSetup>.make(dhss)
 
         default:
@@ -46,8 +49,10 @@ class DHSetup : SinkSetup {
         }
     }
 
-    init(url: NSURL) {
+    init(url: NSURL, repo: String, user: String) {
         client = DHClient(URL: url)
+        repository = repo
+        sharedUser = user
     }
     
     func onSuccess() {
@@ -55,14 +60,14 @@ class DHSetup : SinkSetup {
         case .Register:
             println("Registering done")
             state = .CreateRepo
-            client.createRepo("MyVoiceUp", andShareWith: "gicmo", onSuccess: onSuccess, onFailure: onError)
+            client.createRepo(repository, andShareWith: sharedUser, onSuccess: onSuccess, onFailure: onError)
             reportProgress("Creating Repository", step: 1)
 
             
         case .CreateRepo:
             print("Creating repo done")
             state = .CreateTable
-            client.createTable("responses", inRepo: "MyVoiceUp", withSchema: "id UUID PRIMARY KEY, data json", onSuccess: onSuccess, onFailure: onError)
+            client.createTable("responses", inRepo: repository, withSchema: "id UUID PRIMARY KEY, data json", onSuccess: onSuccess, onFailure: onError)
             reportProgress("Creating Tables", step: 2)
 
         case .CreateTable:
@@ -143,7 +148,6 @@ class DHRegisterViewController: UITableViewController, UITextFieldDelegate, DHSe
         self.view.addSubview(self.hudBackground!)
         
         SVProgressHUD.showProgress(0, status: "Waiting for client")
-        self.dhSetup = DHSetup(url: NSURL(string: "http://localhost:8000")!)
 
         let user = self.userInput.text
         let pass = self.passwordInput.text
