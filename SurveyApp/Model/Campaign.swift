@@ -17,6 +17,8 @@ class Campaign {
 
     var questions = [Question]()
     var templates = [SurveyTemplate]()
+
+    var sink: SinkSetup?
     
     init(id: String) {
         self.indentifier = id

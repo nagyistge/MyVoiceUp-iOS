@@ -31,3 +31,23 @@ class DataSink {
         return NSDictionary()
     }
 }
+
+
+
+class SinkSetup {
+
+    class func fromJSON(data: JSON) -> Result<SinkSetup> {
+
+        if let sinkType = data["type"].string {
+            switch sinkType {
+                case "DataHub":
+                return DHSetup.fromJSON(data)
+            default:
+                let error = NSError(domain: "json", code: 1, userInfo: nil)
+                return Result<SinkSetup>.Error(error)
+            }
+        } else {
+            return Result<SinkSetup>.Error(NSError(domain: "json", code: 0, userInfo: nil))
+        }
+    }
+}

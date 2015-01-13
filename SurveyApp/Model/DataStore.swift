@@ -276,7 +276,14 @@ class DataStore {
             }.filter { $0 != nil }.map{ $0! }
             
             c.templates = json["surveys"].arrayValue.map { self.surveyTemplate4JSON($0) }.filter {$0 != nil}.map{ $0! }
-            
+
+            switch SinkSetup.fromJSON(json["sink"]) {
+            case .Success(let val):
+                c.sink = val.val
+            case .Error(let err):
+                println("Error while parsing campaign: \(err)")
+            }
+
             return c
         }
         

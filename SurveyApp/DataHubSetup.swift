@@ -16,7 +16,7 @@ protocol DHSetupDelegate {
     func dataHubSetupProgress(currentAction: String, completedSetps: Int, totalSteps: Int)
 }
 
-class DHSetup {
+class DHSetup : SinkSetup {
     
     enum State : NSInteger {
         case Error = -1
@@ -29,7 +29,23 @@ class DHSetup {
     var client: DHClient
     var state = State.Init
     var delegate: DHSetupDelegate?
-    
+
+    override class func fromJSON(data: JSON) -> Result<SinkSetup> {
+
+        let endpoint = data["url"].url
+        let repo = data["repo"].string
+        let sharedUser = data["shareWith"].string
+
+        switch (endpoint, repo, sharedUser) {
+        case (.Some(let u), .Some(let r), .Some(let s)):
+            let dhss = DHSetup(url: u)
+            return Result<SinkSetup>.make(dhss)
+
+        default:
+            return Result<SinkSetup>.Error(NSError(domain: "json", code: 1, userInfo: nil))
+        }
+    }
+
     init(url: NSURL) {
         client = DHClient(URL: url)
     }
