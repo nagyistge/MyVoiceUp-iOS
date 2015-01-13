@@ -29,6 +29,20 @@ extension JSON {
     var dateValue: NSDate {
         return self.date!
     }
+
+    var url: NSURL? {
+        get {
+            if let s = self.string {
+                return NSURL(string: s)
+            } else {
+                return nil
+            }
+        }
+    }
+
+    var urlValue: NSURL {
+        return self.url!
+    }
 }
 
 class MediaFile {
