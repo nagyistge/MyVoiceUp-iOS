@@ -56,5 +56,9 @@ class Campaign {
             return nil
         }
     }
-    
+
+    func surveysForDate(date: NSDate) -> [Survey] {
+        return self.templatesForDate(date).flatMap{ self.surveyForTemplate($0) }
+    }
+
 }
