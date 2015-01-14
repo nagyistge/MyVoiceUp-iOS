@@ -255,10 +255,11 @@ class DataStore {
     private func surveyTemplate4JSON(json: JSON) -> Campaign.SurveyTemplate? {
         let date = json["date"].date
         let ttl = json["ttl"].number?.integerValue
+        let qs = json["questions"].array.map { $0.flatMap{ $0.string } }
         
-        switch (date, ttl) {
-        case (.Some(let d), .Some(let t)):
-         return Campaign.SurveyTemplate(date: d, ttl: t, questions: [String]())
+        switch (date, ttl, qs) {
+        case (.Some(let d), .Some(let t), .Some(let q)):
+         return Campaign.SurveyTemplate(date: d, ttl: t, questions: q)
             
         default:
             return nil
@@ -270,8 +271,8 @@ class DataStore {
             let c = Campaign(id: id)
             c.author = json["author"].string
             c.info = json["info"].string
-            
-            c.questions = json["quetions"].arrayValue.map { (json: JSON) -> Question? in
+
+            c.questions = json["questions"].arrayValue.map { (json: JSON) -> Question? in
                 return Question.fromJSON(json)
             }.filter { $0 != nil }.map{ $0! }
             
