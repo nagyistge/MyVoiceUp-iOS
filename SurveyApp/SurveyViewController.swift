@@ -31,7 +31,6 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
         self.pageViewController!.delegate = self
         self.pageViewController!.automaticallyAdjustsScrollViewInsets = false
         
-        survey = DataStore.sharedInstance.survey! //FIXME
         response = Response(survey_id: survey.identifier)
         
         let q = survey.questions.first!
