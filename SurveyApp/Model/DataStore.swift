@@ -134,9 +134,21 @@ class DataStore {
         
         let dates = allResponses?.map{$0 as NSURL}.map{dateFormatter.dateFromString($0.lastPathComponent!)}.filter{$0 != nil}.map{$0!}.sorted{ $0.0.compare($0.1) == NSComparisonResult.OrderedDescending }
         return dates ?? [NSDate]()
-        
     }
-    
+
+    func haveResponseForDate(date: NSDate) -> Bool {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: "C")
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+
+        let dateString = dateFormatter.stringFromDate(date)
+
+        let fm = NSFileManager.defaultManager()
+        let dateURL = storeURL.URLByAppendingPathComponent("responses/by_date/\(dateString)", isDirectory: true)
+
+        return fm.fileExistsAtPath(dateURL.path!)
+    }
+
     func generateMediaURL(uuid: String, suffix: String) -> NSURL {
         let fm = NSFileManager.defaultManager()
         let urls = fm.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
