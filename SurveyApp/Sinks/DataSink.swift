@@ -33,6 +33,9 @@ class DataSink {
 }
 
 
+protocol SinkSetupDelegate {
+    func sinkSetup(sinkSetup: SinkSetup, setupDoneWithResult result: Result<DataSink>)
+}
 
 class SinkSetup {
 
