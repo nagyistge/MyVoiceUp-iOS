@@ -49,6 +49,15 @@ class DHSetup : SinkSetup {
         }
     }
 
+    override func createUI(parent: SinkSetupDelegate) -> UIViewController {
+        let storyboard = UIStoryboard(name: "DataHubUI", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("DHSetupNavigation") as UINavigationController
+        let rvc = vc.viewControllers.first! as DHRegisterViewController
+        rvc.delegate = parent
+        rvc.dhSetup = self
+        return vc
+    }
+
     init(url: NSURL, repo: String, user: String) {
         client = DHClient(URL: url)
         repository = repo
@@ -112,8 +121,9 @@ class DHRegisterViewController: UITableViewController, UITextFieldDelegate, DHSe
     @IBOutlet weak var emailInput: UITextField!
     @IBOutlet weak var passwordInput: UITextField!
     
-    var dhSetup: DHSetup?
+    weak var dhSetup: DHSetup!
     var hudBackground: UIView?
+    var delegate: SinkSetupDelegate?
     
     override func viewDidLoad() {
         userInput.delegate = self
@@ -153,9 +163,8 @@ class DHRegisterViewController: UITableViewController, UITextFieldDelegate, DHSe
         let pass = self.passwordInput.text
         let email = self.emailInput.text
         
-        self.dhSetup?.delegate = self
-        self.dhSetup?.register(user, email: email, password: pass)
-        
+        self.dhSetup.delegate = self
+        self.dhSetup.register(user, email: email, password: pass)
     }
     
     func dataHubSetupComplete() {

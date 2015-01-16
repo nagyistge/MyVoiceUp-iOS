@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Christian Kellner. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
 protocol DataSinkDelegate {
@@ -52,5 +52,9 @@ class SinkSetup {
         } else {
             return Result<SinkSetup>.Error(NSError(domain: "json", code: 0, userInfo: nil))
         }
+    }
+
+    func createUI(parent: SinkSetupDelegate) -> UIViewController {
+        fatalError("Implement me!")
     }
 }
