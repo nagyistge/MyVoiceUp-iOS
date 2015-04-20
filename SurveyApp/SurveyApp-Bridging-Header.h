@@ -5,6 +5,6 @@
 #import "Ohmage2Client.h"
 #import "DataHubClient.h"
 
-#import "SVProgressHUD.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 #import <CommonCrypto/CommonCrypto.h>

@@ -8,7 +8,7 @@
 
 #ifndef SurveyApp_DataHubClient_h
 #define SurveyApp_DataHubClient_h
-#include <AFNetworking.h>
+#include <AFNetworking/AFNetworking.h>
 
 @interface DHClient: NSObject
 

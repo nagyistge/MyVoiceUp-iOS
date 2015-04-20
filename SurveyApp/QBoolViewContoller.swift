@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 protocol QBoolAnswerViewControllerDelegate {
     func qboolAnswerViewController(viewController: QBoolAnswerViewController, madeChoice: Bool);
@@ -20,7 +21,7 @@ class QBoolViewController: QuestionViewController, QBoolAnswerViewControllerDele
     @IBOutlet weak var container: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        txtChoiceQ = super.question as QBoolChoice
+        txtChoiceQ = super.question as! QBoolChoice
         println("view did load finished")
         answerViewController.delegate = self
         answerViewController.trueLabel.text = txtChoiceQ.trueChoice

@@ -10,7 +10,7 @@
 #define SurveyApp_Ohmage2Sink_h
 
 #include <Foundation/Foundation.h>
-#include <AFNetworking.h>
+#include <AFNetworking/AFNetworking.h>
 
 @interface Ohmage2Client : AFHTTPSessionManager
 

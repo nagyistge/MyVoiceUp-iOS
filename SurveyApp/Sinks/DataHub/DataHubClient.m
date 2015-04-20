@@ -11,8 +11,8 @@
 #import  <MobileCoreServices/MobileCoreServices.h>
 
 #import "datahub.h"
-#import <THTTPClient.h>
-#import <TBinaryProtocol.h>
+#import <thrift/THTTPClient.h>
+#import <thrift/TBinaryProtocol.h>
 
 @interface DHClient ()
 

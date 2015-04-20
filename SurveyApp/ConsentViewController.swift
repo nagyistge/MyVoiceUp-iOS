@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 protocol ConsentViewControllerDelegate {
     func didGiveConsent(vc:ConsentViewController);

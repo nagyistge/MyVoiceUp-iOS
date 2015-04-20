@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftyJSON
 
 protocol DataSinkDelegate {
     func dataSink(sink: DataSink, uploadStartedForResponse response: Response)
