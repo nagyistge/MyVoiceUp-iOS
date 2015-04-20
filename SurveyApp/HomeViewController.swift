@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ResearchKit
 
 class HomeViewController : UIViewController {
     
@@ -85,17 +86,33 @@ class HomeTableViewController: UITableViewController, UITableViewDataSource, Sur
         }
     }
 
-
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         if cell?.reuseIdentifier == "TakeSurvey" {
-            if survey != nil {
-                self.performSegueWithIdentifier("TakeSurveySegue", sender: cell)
+            if let curSur = survey {
+                let tasks = tasksForSurvey(curSur)
+                let task = tasks[0]
+                let taskViewController = ORKTaskViewController(task: task, taskRunUUID: nil)
+                 presentViewController(taskViewController, animated: true, completion: nil)
             } else {
                 tableView.deselectRowAtIndexPath(indexPath, animated: true)
             }
         }
     }
+    
+    //move this somewhere else, maybe the survey itself, or an survey extensions?
+    
+    func tasksForSurvey(su: Survey) -> [ORKTask] {
+        let audioQs = su.questions.filter{ $0 is QAudioRecording }.map{ $0 as! QAudioRecording }
+        let surveyQs = su.questions.filter{ !($0 is QAudioRecording) }
+        
+        var tasks = [ORKTask]()
+        
+        tasks += audioQs.map{ ORKOrderedTask.audioTaskWithIdentifier($0.identifier , intendedUseDescription: $0.question_text, speechInstruction: $0.question_text, shortSpeechInstruction: $0.question_text, duration: 20, recordingSettings: nil, options: nil) }.map{ $0 as ORKTask }
+        
+        return tasks
+    }
+    
 }
 
 class ResponsesInfoCell: UITableViewCell {
