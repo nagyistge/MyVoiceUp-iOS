@@ -40,7 +40,7 @@ class QBoolViewController: QuestionViewController, QBoolAnswerViewControllerDele
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let sid = segue.identifier {
             if sid == "embedYesNo" {
-                answerViewController = segue.destinationViewController as QBoolAnswerViewController
+                answerViewController = segue.destinationViewController as! QBoolAnswerViewController
                 println("Have view controller")
             }
         }

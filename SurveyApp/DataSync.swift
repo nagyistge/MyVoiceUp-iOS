@@ -32,7 +32,7 @@ class DataSync {
         
         let files = fm.contentsOfDirectoryAtURL(campaignURL, includingPropertiesForKeys: [NSURLNameKey, NSURLFileResourceTypeKey], options: nil, error: nil)
         
-        let sinks = files?.map{ $0 as NSURL }.flatMap{ NSData(contentsOfURL: $0) }.map{ JSON(data: $0) }.flatMap{ DataSink.fromJSON($0) }
+        let sinks = files?.map{ $0 as! NSURL }.flatMap{ NSData(contentsOfURL: $0) }.map{ JSON(data: $0) }.flatMap{ DataSink.fromJSON($0) }
         return sinks ?? [DataSink]()
     }
     

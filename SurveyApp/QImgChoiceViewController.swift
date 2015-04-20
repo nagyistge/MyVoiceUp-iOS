@@ -19,11 +19,11 @@ class QImgChoiceViewController: QuestionViewController, UITableViewDataSource, U
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        imgChoiceQ = self.question as QImgChoice
+        imgChoiceQ = self.question as! QImgChoice
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("ImageChoiceCell") as QImgChoiceCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("ImageChoiceCell") as! QImgChoiceCell
         
         let choice = imgChoiceQ.choices[indexPath.row]
         
@@ -42,7 +42,7 @@ class QImgChoiceViewController: QuestionViewController, UITableViewDataSource, U
         if self.answer == nil {
             self.answer = ValuedAnswer<Int>(question: self.question, value: indexPath.row)
         } else {
-            let a = self.answer as ValuedAnswer<Int>
+            let a = self.answer as! ValuedAnswer<Int>
             a.value = indexPath.row
         }
         

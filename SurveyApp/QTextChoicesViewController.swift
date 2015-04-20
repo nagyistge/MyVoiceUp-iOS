@@ -18,7 +18,7 @@ class QTextChoiceViewController: QuestionViewController, UITableViewDataSource, 
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        txtChoiceQ = self.question as QTextChoice
+        txtChoiceQ = self.question as! QTextChoice
         
         if let a = self.answer {
             println("Have answer already")
@@ -26,7 +26,7 @@ class QTextChoiceViewController: QuestionViewController, UITableViewDataSource, 
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("TextChoiceCell") as QTextChoiceCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("TextChoiceCell") as! QTextChoiceCell
         
         cell.choiceLabel?.text = txtChoiceQ.choices[indexPath.row]
         return cell
@@ -41,7 +41,7 @@ class QTextChoiceViewController: QuestionViewController, UITableViewDataSource, 
         if self.answer == nil {
             self.answer = ValuedAnswer<Int>(question: self.question, value: indexPath.row)
         } else {
-            let a = self.answer as ValuedAnswer<Int>
+            let a = self.answer as! ValuedAnswer<Int>
             a.value = indexPath.row
         }
     }

@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ConsentViewControllerDele
         if defaults.objectForKey("consent") == nil {
             println("Will get consent")
             
-            let vc = storyboard.instantiateViewControllerWithIdentifier("ConsentVC") as ConsentViewController
+            let vc = storyboard.instantiateViewControllerWithIdentifier("ConsentVC") as! ConsentViewController
             vc.delegate = self
             window?.rootViewController = vc
         } else {
@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ConsentViewControllerDele
         defaults.synchronize()
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let homeVC = storyboard.instantiateViewControllerWithIdentifier("Root") as UIViewController
+        let homeVC = storyboard.instantiateViewControllerWithIdentifier("Root") as! UIViewController
 
         UIView.transitionFromView(window!.rootViewController!.view!, toView: homeVC.view, duration: 0.7, options: .TransitionCrossDissolve) { (b: Bool) -> Void in
             self.setRootVC(homeVC)

@@ -116,7 +116,7 @@ class QAudioViewController: QuestionViewController, AVAudioRecorderDelegate, AVA
         
         mediaFile = MediaFile(uuid: mediaUUID, url: soundFileURL)
         
-        self.recorder = AVAudioRecorder(URL: soundFileURL, settings: recordSettings, error: &error)
+        self.recorder = AVAudioRecorder(URL: soundFileURL, settings: recordSettings as [NSObject : AnyObject], error: &error)
         if let e = error {
             println(e.localizedDescription)
         } else {
@@ -166,7 +166,7 @@ class QAudioViewController: QuestionViewController, AVAudioRecorderDelegate, AVA
         var currentFileName = "recording-\(format.stringFromDate(NSDate())).m4a"
         
         var dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        var docsDir = dirPaths[0] as String
+        var docsDir = dirPaths[0] as! String
         var soundFilePath = docsDir.stringByAppendingPathComponent(currentFileName)
         return NSURL.fileURLWithPath(soundFilePath)!
     }

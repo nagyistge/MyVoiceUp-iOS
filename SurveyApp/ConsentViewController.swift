@@ -29,7 +29,8 @@ class ConsentViewController: UIViewController {
             let data = NSData(contentsOfURL: file)
             if let d = data {
                 let html = NSString(data: d, encoding: NSUTF8StringEncoding)
-                self.consentView.loadHTMLString(html, baseURL: file.baseURL)
+                let base = file.baseURL ?? NSURL(string: "file:///")
+                self.consentView.loadHTMLString(html as! String, baseURL: base)
             }
         }
     }

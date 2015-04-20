@@ -18,7 +18,7 @@ extension String {
         for byte in digest {
             output.appendFormat("%02x", byte)
         }
-        return output
+        return output as String
     }
 }
 
@@ -57,11 +57,11 @@ class Ohmage2Sink: DataSink {
             let mediaFiles = dataStore.mediaFileForResponse(response)
             let media =  mediaFiles.map{ ["uuid": $0.uuid, "url": $0.url] }
             
-            let campDict = campaign as [NSString: AnyObject]
+            let campDict = campaign as! [NSString: AnyObject]
             if let k = campDict.keys.first {
                 
                 let json = JSON(campaign)
-                let urn: String = k
+                let urn: String = k as String
                 
                 var r: [String: AnyObject] = self.response2dict(response)
                 var s: [String: AnyObject] = ["urn": urn,

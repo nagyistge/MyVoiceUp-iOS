@@ -28,7 +28,7 @@ class MediaBrowserViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("MediaInfoCell") as UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("MediaInfoCell") as! UITableViewCell
         
         let curFile = files![indexPath.row].uuid
         cell.textLabel?.text = curFile

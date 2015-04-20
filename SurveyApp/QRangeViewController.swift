@@ -22,7 +22,7 @@ class QRangeViewController: QuestionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        rangeQuestion = self.question as QRange
+        rangeQuestion = self.question as! QRange
         
         minLabel.text = rangeQuestion.rangeMin.stringValue
         maxLabel.text = rangeQuestion.rangeMax.stringValue

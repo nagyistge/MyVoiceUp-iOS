@@ -47,7 +47,7 @@ class Campaign {
         let Q = self.questions.map{ $0.identifier }
         let uuid = NSUUID().UUIDString
         
-        let qs = template.questions.map{ find(Q, $0) }.filter{ $0 != nil }.map{ self.questions[$0!] }
+        let qs = template.questions.map{ find(Q, $0 as! String) }.filter{ $0 != nil }.map{ self.questions[$0!] }
         
         if qs.count == template.questions.count {
             //fixme: the id is probably not right here

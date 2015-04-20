@@ -53,8 +53,8 @@ class DHSetup : SinkSetup {
 
     override func createUI(parent: SinkSetupDelegate) -> UIViewController {
         let storyboard = UIStoryboard(name: "DataHubUI", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("DHSetupNavigation") as UINavigationController
-        let rvc = vc.viewControllers.first! as DHRegisterViewController
+        let vc = storyboard.instantiateViewControllerWithIdentifier("DHSetupNavigation") as! UINavigationController
+        let rvc = vc.viewControllers.first! as! DHRegisterViewController
         rvc.delegate = parent
         rvc.dhSetup = self
         return vc

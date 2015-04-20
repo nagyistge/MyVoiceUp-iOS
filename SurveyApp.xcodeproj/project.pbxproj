@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DCC89C76E6AE9D432C78CDCF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E4080ED3DC4AA4306B0CD1 /* libPods.a */; };
+		B587BB4B70A85033EE7366D2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 735ECAE784A1682217E6B502 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		E906363D1A600DCC0029D090 /* Functional.swift in Sources */ = {isa = PBXBuildFile; fileRef = E906363C1A600DCC0029D090 /* Functional.swift */; };
 		E906363F1A6020D40029D090 /* DataHubSink.swift in Sources */ = {isa = PBXBuildFile; fileRef = E906363E1A6020D40029D090 /* DataHubSink.swift */; };
 		E909B14E1A44D5260035EC8A /* ConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E909B14D1A44D5260035EC8A /* ConsentViewController.swift */; };
@@ -41,8 +41,6 @@
 		E9B24AF31A36080C00903FEE /* QBoolViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24AF21A36080C00903FEE /* QBoolViewContoller.swift */; };
 		E9B24AF51A361EF600903FEE /* QAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24AF41A361EF600903FEE /* QAudioViewController.swift */; };
 		E9B24AF71A36225200903FEE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B24AF61A36225200903FEE /* AVFoundation.framework */; };
-		E9B24AFE1A362CD500903FEE /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24AFD1A362CD500903FEE /* Alamofire.swift */; };
-		E9B24B011A362CE900903FEE /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B24B001A362CE900903FEE /* SwiftyJSON.swift */; };
 		E9C169691A55EFEE002F6019 /* sage_cognition0.png in Resources */ = {isa = PBXBuildFile; fileRef = E9C169501A55EFEE002F6019 /* sage_cognition0.png */; };
 		E9C1696A1A55EFEE002F6019 /* sage_cognition1.png in Resources */ = {isa = PBXBuildFile; fileRef = E9C169511A55EFEE002F6019 /* sage_cognition1.png */; };
 		E9C1696B1A55EFEE002F6019 /* sage_cognition2.png in Resources */ = {isa = PBXBuildFile; fileRef = E9C169521A55EFEE002F6019 /* sage_cognition2.png */; };
@@ -88,7 +86,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		86E4080ED3DC4AA4306B0CD1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		735ECAE784A1682217E6B502 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE3DBFE6C5B04195FF1E4221 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BEDF7E2CE8A08A079A220AE0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E906363C1A600DCC0029D090 /* Functional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functional.swift; sourceTree = "<group>"; };
@@ -132,10 +130,6 @@
 		E9B24AF21A36080C00903FEE /* QBoolViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QBoolViewContoller.swift; sourceTree = "<group>"; };
 		E9B24AF41A361EF600903FEE /* QAudioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAudioViewController.swift; sourceTree = "<group>"; };
 		E9B24AF61A36225200903FEE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		E9B24AFC1A362CD500903FEE /* Alamofire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alamofire.h; path = "Alamofire-SwiftyJSON/Alamofire/Source/Alamofire.h"; sourceTree = "<group>"; };
-		E9B24AFD1A362CD500903FEE /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = "Alamofire-SwiftyJSON/Alamofire/Source/Alamofire.swift"; sourceTree = "<group>"; };
-		E9B24AFF1A362CE900903FEE /* SwiftyJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwiftyJSON.h; path = "Alamofire-SwiftyJSON/SwiftyJSON/Source/SwiftyJSON.h"; sourceTree = "<group>"; };
-		E9B24B001A362CE900903FEE /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = "Alamofire-SwiftyJSON/SwiftyJSON/Source/SwiftyJSON.swift"; sourceTree = "<group>"; };
 		E9C169501A55EFEE002F6019 /* sage_cognition0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sage_cognition0.png; path = "Sage Images/sage_cognition0.png"; sourceTree = SOURCE_ROOT; };
 		E9C169511A55EFEE002F6019 /* sage_cognition1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sage_cognition1.png; path = "Sage Images/sage_cognition1.png"; sourceTree = SOURCE_ROOT; };
 		E9C169521A55EFEE002F6019 /* sage_cognition2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sage_cognition2.png; path = "Sage Images/sage_cognition2.png"; sourceTree = SOURCE_ROOT; };
@@ -180,7 +174,7 @@
 				E92B102E1A366A66005BFDFE /* QuartzCore.framework in Frameworks */,
 				E92B102A1A363ABA005BFDFE /* MediaPlayer.framework in Frameworks */,
 				E9B24AF71A36225200903FEE /* AVFoundation.framework in Frameworks */,
-				DCC89C76E6AE9D432C78CDCF /* libPods.a in Frameworks */,
+				B587BB4B70A85033EE7366D2 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +193,7 @@
 			children = (
 				E9C169861A56E2B6002F6019 /* libcommonCrypto.dylib */,
 				E961F0641A423D2900932EB4 /* MobileCoreServices.framework */,
-				86E4080ED3DC4AA4306B0CD1 /* libPods.a */,
+				735ECAE784A1682217E6B502 /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -276,7 +270,6 @@
 				E9B24AB61A2FBD9000903FEE /* Main.storyboard */,
 				E9B24AB91A2FBD9000903FEE /* Images.xcassets */,
 				E9B24ABB1A2FBD9000903FEE /* LaunchScreen.xib */,
-				E9B24B051A362CFC00903FEE /* Alamofire-Swifty */,
 				E9B24AAC1A2FBD9000903FEE /* Supporting Files */,
 				E91F3A9E1A3DE79000081821 /* SurveyApp-Bridging-Header.h */,
 			);
@@ -327,18 +320,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		E9B24B051A362CFC00903FEE /* Alamofire-Swifty */ = {
-			isa = PBXGroup;
-			children = (
-				E9B24AFF1A362CE900903FEE /* SwiftyJSON.h */,
-				E9B24B001A362CE900903FEE /* SwiftyJSON.swift */,
-				E9B24AFC1A362CD500903FEE /* Alamofire.h */,
-				E9B24AFD1A362CD500903FEE /* Alamofire.swift */,
-			);
-			name = "Alamofire-Swifty";
-			path = ..;
-			sourceTree = "<group>";
-		};
 		E9C1694F1A55EFD7002F6019 /* Sage Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +364,7 @@
 				E9B24AA61A2FBD9000903FEE /* Frameworks */,
 				E9B24AA71A2FBD9000903FEE /* Resources */,
 				B43FBCC60F89406CD9EC39C8 /* Copy Pods Resources */,
+				D33F0F04496A931BD5039746 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -530,6 +512,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D33F0F04496A931BD5039746 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -544,14 +541,12 @@
 				E9B24AEF1A34C49E00903FEE /* DataStore.swift in Sources */,
 				E906363F1A6020D40029D090 /* DataHubSink.swift in Sources */,
 				E9B24AB11A2FBD9000903FEE /* SurveyViewController.swift in Sources */,
-				E9B24B011A362CE900903FEE /* SwiftyJSON.swift in Sources */,
 				E92B10301A379B84005BFDFE /* QRangeViewController.swift in Sources */,
 				E9C169831A56D92A002F6019 /* DataSync.swift in Sources */,
 				E9B24AE71A32446200903FEE /* Survey.swift in Sources */,
 				E9B24AB31A2FBD9000903FEE /* QuestionViewController.swift in Sources */,
 				E9B24AF31A36080C00903FEE /* QBoolViewContoller.swift in Sources */,
 				E96C64E51A38EA51008A8FDE /* Response.swift in Sources */,
-				E9B24AFE1A362CD500903FEE /* Alamofire.swift in Sources */,
 				E9B24AF51A361EF600903FEE /* QAudioViewController.swift in Sources */,
 				E9EA16E81A3DF24B00010DDD /* Ohmage2Sink.swift in Sources */,
 				E9F657841A461D2A004FDBCA /* DataHubSetup.swift in Sources */,
@@ -641,7 +636,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -678,7 +673,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -695,7 +690,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SurveyApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -717,7 +712,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SurveyApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

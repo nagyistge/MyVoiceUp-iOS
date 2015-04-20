@@ -46,7 +46,7 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
         previousViewControllers: [AnyObject],
         transitionCompleted completed: Bool) {
             if completed {
-                let currentViewController = pageViewController.viewControllers[0] as QuestionViewController
+                let currentViewController = pageViewController.viewControllers[0] as! QuestionViewController
                 self.lblHeader.text = currentViewController.dataLabel.text
             }
     }
@@ -67,7 +67,7 @@ class SurveyViewController: UIViewController, UIPageViewControllerDelegate, Ques
             result = "QImgChoiceViewController"
         }
         
-        let vc = storyboard.instantiateViewControllerWithIdentifier(result) as QuestionViewController
+        let vc = storyboard.instantiateViewControllerWithIdentifier(result) as! QuestionViewController
         vc.question = question
         vc.delegate = self
         return vc

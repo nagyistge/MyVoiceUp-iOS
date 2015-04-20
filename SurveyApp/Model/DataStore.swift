@@ -78,7 +78,7 @@ class DataStore {
         let fm = NSFileManager.defaultManager()
         let docUrls = fm.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         mediaURL = docUrls[0].URLByAppendingPathComponent("media")
-        storeURL = docUrls[0] as NSURL
+        storeURL = docUrls[0] as! NSURL
         var err: NSError?
         fm.createDirectoryAtURL(mediaURL, withIntermediateDirectories: true, attributes:nil, error: &err)
         //fixme: check error
@@ -133,7 +133,7 @@ class DataStore {
         let dateURL = storeURL.URLByAppendingPathComponent("responses/by_date", isDirectory: true)
         let allResponses = fm.contentsOfDirectoryAtURL(dateURL, includingPropertiesForKeys: nil, options: .SkipsSubdirectoryDescendants, error: nil)
         
-        let dates = allResponses?.map{$0 as NSURL}.map{dateFormatter.dateFromString($0.lastPathComponent!)}.filter{$0 != nil}.map{$0!}.sorted{ $0.0.compare($0.1) == NSComparisonResult.OrderedDescending }
+        let dates = allResponses?.map{$0 as! NSURL}.map{dateFormatter.dateFromString($0.lastPathComponent!)}.filter{$0 != nil}.map{$0!}.sorted{ $0.0.compare($0.1) == NSComparisonResult.OrderedDescending }
         return dates ?? [NSDate]()
     }
 
@@ -164,13 +164,13 @@ class DataStore {
         let fm = NSFileManager.defaultManager()
         let files = fm.contentsOfDirectoryAtURL(self.mediaURL, includingPropertiesForKeys: [NSURLNameKey, NSURLFileResourceTypeKey], options: nil, error: &err)
         
-        let mediaFiles = files?.map{ $0 as NSURL }.map{ MediaFile(uuid: $0.lastPathComponent!.stringByDeletingPathExtension, url: $0) }
+        let mediaFiles = files?.map{ $0 as! NSURL }.map{ MediaFile(uuid: $0.lastPathComponent!.stringByDeletingPathExtension, url: $0) }
 
         return mediaFiles ?? [MediaFile]()
     }
     
     func mediaFileForResponse(response: Response) -> [MediaFile] {
-        let mf = response.answers.filter{ $0 is ValuedAnswer<MediaFile> }.map{ $0 as ValuedAnswer<MediaFile> }.map{ $0.value }
+        let mf = response.answers.filter{ $0 is ValuedAnswer<MediaFile> }.map{ $0 as! ValuedAnswer<MediaFile> }.map{ $0.value }
         return mf ?? [MediaFile]()
     }
     

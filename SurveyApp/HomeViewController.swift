@@ -67,7 +67,7 @@ class HomeTableViewController: UITableViewController, UITableViewDataSource, Sur
         store.storeReponse(response)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("DataUpload") as DataUploadViewController
+        let vc = storyboard.instantiateViewControllerWithIdentifier("DataUpload") as! DataUploadViewController
         vc.response = response
         self.navigationController?.navigationBar.topItem?.title = "Home"
         self.navigationController?.setViewControllers([self.parentViewController!, vc], animated: true);
