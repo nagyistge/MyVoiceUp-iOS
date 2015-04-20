@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ConsentViewControllerDele
         }
         
         window?.makeKeyAndVisible()
-        
+        window?.tintColor = UIColor(red: 0.639, green: 0.122, blue: 0.204, alpha: 1.0);
         
         return true
     }
