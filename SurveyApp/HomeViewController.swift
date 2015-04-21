@@ -76,13 +76,12 @@ class HomeTableViewController: UITableViewController, UITableViewDataSource, Sur
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         super.prepareForSegue(segue, sender: sender)
+        self.navigationController?.navigationBarHidden = false
         
         if let destVC = segue.destinationViewController as? SurveyViewController {
-            self.navigationController?.navigationBarHidden = true
+            
             destVC.delegate = self
             destVC.survey = self.survey!
-        } else {
-            self.navigationController?.navigationBarHidden = false
         }
     }
 
@@ -90,11 +89,7 @@ class HomeTableViewController: UITableViewController, UITableViewDataSource, Sur
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         if cell?.reuseIdentifier == "TakeSurvey" {
             if let curSur = survey {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewControllerWithIdentifier("SurveyVC") as! SurveyViewController
-                vc.survey = curSur
-                //presentViewController(vc, animated: true, completion: nil)
-                self.navigationController?.setViewControllers([self.parentViewController!, vc], animated: true);
+                self.performSegueWithIdentifier("TakeSurveySegue", sender: cell)
             } else {
                 tableView.deselectRowAtIndexPath(indexPath, animated: true)
             }

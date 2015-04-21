@@ -212,6 +212,7 @@
                         <outlet property="numResponsesLabel" destination="t6p-IJ-XDX" id="gUx-8z-hfc"/>
                         <outlet property="numStreakLabel" destination="9va-PB-dVQ" id="5CY-jG-76a"/>
                         <outlet property="surveyLabel" destination="a64-ML-8Oo" id="9t4-Gv-yWv"/>
+                        <segue destination="VR3-tO-QYt" kind="show" identifier="TakeSurveySegue" id="olI-rC-3uD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clV-t7-6gH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -291,7 +292,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="SurveyVC" id="VR3-tO-QYt" customClass="SurveyViewController" customModule="SurveyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lGA-Ja-pXc">
-                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="496"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -312,7 +313,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QBD-Se-Sw2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="877" y="1751"/>
+            <point key="canvasLocation" x="717" y="856"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="42G-Fx-ISu">
