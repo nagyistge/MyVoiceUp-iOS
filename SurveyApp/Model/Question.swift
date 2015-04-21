@@ -131,6 +131,18 @@ class QImgChoice: Question {
         super.init(json: json)
         
         choices = json["choices"].arrayValue.map{Choice(image: $0["image"].stringValue, text: $0["label"].string)}
+    }
+    
+    override func asStep() -> ORKStep {
         
+        let imgChoices = choices.map{ ORKImageChoice(normalImage: UIImage(named: $0.image), selectedImage: nil, text: $0.text, value: $0.text!) }
+        
+        let frmt = ORKAnswerFormat.choiceAnswerFormatWithImageChoices(imgChoices)
+        let step = ORKQuestionStep(identifier: self.identifier, title: self.identifier, answer: frmt)
+        
+        step.text = self.question_text
+        step.optional = self.skippable
+        
+        return step
     }
 }
