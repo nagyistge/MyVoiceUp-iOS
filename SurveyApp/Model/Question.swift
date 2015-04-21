@@ -84,6 +84,13 @@ class QBoolChoice: Question {
     var trueChoice = "Yes"
     var falseChoice = "No"
     
+    override func asStep() -> ORKStep {
+        let answerFormat = ORKBooleanAnswerFormat()
+        let questionStep = ORKQuestionStep(identifier: self.identifier, title: self.identifier, answer: answerFormat)
+        questionStep.text = self.question_text
+        questionStep.optional = self.skippable
+        return questionStep
+    }
 }
 
 class QAudioRecording: Question {
