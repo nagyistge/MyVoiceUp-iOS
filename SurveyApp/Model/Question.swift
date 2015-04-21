@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+import ResearchKit
 
 enum QuestionType : String {
     case Boolean = "boolean"
@@ -57,6 +58,13 @@ class Question: Equatable {
         
         return nil
     }
+    
+    //ResearchKit
+    
+    func asStep() -> ORKStep {
+        fatalError("Implement me!")
+    }
+    
 }
 
 func ==(lhs: Question, rhs: Question) -> Bool {
