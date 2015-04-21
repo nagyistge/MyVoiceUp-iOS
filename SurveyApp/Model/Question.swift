@@ -78,6 +78,18 @@ class QTextChoice : Question {
         super.init(json: json)
         choices = json["choices"].arrayValue.map{$0.stringValue}
     }
+    
+    override func asStep() -> ORKStep {
+        let txtChoices = choices.map{ ORKTextChoice(text: $0, value: $0) }
+        
+        let frmt = ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: txtChoices)
+        let step = ORKQuestionStep(identifier: self.identifier, title: self.identifier, answer: frmt)
+        
+        step.text = self.question_text
+        step.optional = self.skippable
+        
+        return step
+    }
 }
 
 class QBoolChoice: Question {
