@@ -90,10 +90,11 @@ class HomeTableViewController: UITableViewController, UITableViewDataSource, Sur
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         if cell?.reuseIdentifier == "TakeSurvey" {
             if let curSur = survey {
-                let tasks = tasksForSurvey(curSur)
-                let task = tasks[0]
-                let taskViewController = ORKTaskViewController(task: task, taskRunUUID: nil)
-                 presentViewController(taskViewController, animated: true, completion: nil)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewControllerWithIdentifier("SurveyVC") as! SurveyViewController
+                vc.survey = curSur
+                //presentViewController(vc, animated: true, completion: nil)
+                self.navigationController?.setViewControllers([self.parentViewController!, vc], animated: true);
             } else {
                 tableView.deselectRowAtIndexPath(indexPath, animated: true)
             }
@@ -110,6 +111,10 @@ class HomeTableViewController: UITableViewController, UITableViewDataSource, Sur
         
         tasks += audioQs.map{ ORKOrderedTask.audioTaskWithIdentifier($0.identifier , intendedUseDescription: $0.question_text, speechInstruction: $0.question_text, shortSpeechInstruction: $0.question_text, duration: 20, recordingSettings: nil, options: nil) }.map{ $0 as ORKTask }
         
+        let surveySteps = surveyQs.map{ $0.asStep() }
+        print(surveySteps)
+        tasks += [ORKOrderedTask(identifier: "bla", steps: [surveySteps]) as ORKTask]
+        print(tasks)
         return tasks
     }
     
