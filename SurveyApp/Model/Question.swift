@@ -129,6 +129,17 @@ class QRange: Question {
             rangeStep = v
         }
     }
+    
+    override func asStep() -> ORKStep {
+    
+        let frmt = ORKAnswerFormat.continuousScaleAnswerFormatWithMaxValue(self.rangeMax.doubleValue, minValue: self.rangeMin.doubleValue, defaultValue: self.rangeMax.doubleValue, maximumFractionDigits: 2)
+        let step = ORKQuestionStep(identifier: self.identifier, title: self.question_text, answer: frmt)
+        
+        step.text = self.question_text
+        step.optional = self.skippable
+        
+        return step
+    }
 }
 
 class QImgChoice: Question {
