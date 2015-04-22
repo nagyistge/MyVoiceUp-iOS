@@ -13,7 +13,7 @@ protocol SurveyViewControllerDelegate {
     func surveyViewController(viewController: SurveyViewController, forSurvey survey: Survey, withResponse response: Response)
 }
 
-class SurveyViewController: UITableViewController {
+class SurveyViewController: UITableViewController, ORKTaskViewControllerDelegate {
 
     var survey: Survey!
     var response: Response!
@@ -49,6 +49,7 @@ class SurveyViewController: UITableViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let theTask = tasks[row]
         let tvc = ORKTaskViewController(task: theTask, taskRunUUID: nil)
+        tvc.delegate = self
         presentViewController(tvc, animated: true, completion: nil)
     }
 
@@ -69,5 +70,12 @@ class SurveyViewController: UITableViewController {
         return tasks
     }
 
+    // ResearchKit's TVC
+    func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+ 
+        //TODO: handle results
+        
+        taskViewController.dismissViewControllerAnimated(true, completion: nil)
+    }
 }
 
