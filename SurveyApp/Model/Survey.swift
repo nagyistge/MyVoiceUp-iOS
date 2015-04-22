@@ -8,6 +8,37 @@
 
 import Foundation
 import SwiftyJSON
+import ResearchKit
+
+
+enum BlockType : Int {
+    case Questions = 0
+    case Audio = 1
+}
+
+class SurveyBlock {
+    var name: String
+    var type: BlockType
+    
+    init(name: String, type: BlockType, questions: [Question]) {
+        self.name = name
+        self.type = type
+        self.questions = questions
+    }
+    
+    var questions = [Question]()
+    
+    func asRKTask() -> ORKTask {
+        switch(type) {
+        case .Audio:
+            return ORKOrderedTask.audioTaskWithIdentifier(name, intendedUseDescription: questions[0].question_text, speechInstruction: questions[0].question_text, shortSpeechInstruction: questions[0].question_text, duration: 20, recordingSettings: nil, options: nil)
+            
+        case .Questions:
+            return ORKOrderedTask(identifier: name, steps: questions.map{ $0.asStep() })
+            
+        }
+    }
+}
 
 class Survey {
     
@@ -37,6 +68,18 @@ class Survey {
         self.identifier = id
         self.date = date
         self.questions = questions
+    }
+    
+    var groups : [SurveyBlock] {
+        get {
+            let audioQs = questions.filter{ $0 is QAudioRecording }.map{ $0 as! QAudioRecording }
+            let surveyQs = questions.filter{ !($0 is QAudioRecording) }
+            
+            var grps = audioQs.map{ SurveyBlock(name: $0.identifier, type: .Audio, questions: [$0]) }
+            grps += [SurveyBlock(name: "Questions", type: .Questions, questions: surveyQs)]
+         
+            return grps
+        }
     }
     
 }
