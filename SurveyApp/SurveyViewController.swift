@@ -35,11 +35,10 @@ class SurveyViewController: UITableViewController, ORKTaskViewControllerDelegate
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SurveyItemCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("SurveyItemCell", forIndexPath: indexPath) as! SurveyTaskCell
         
         let theTask = tasks[indexPath.row]
-        
-        cell.textLabel!.text = "\(theTask.identifier)"
+        cell.itemTitle!.text = "\(theTask.identifier)"
         
         return cell
     }
@@ -51,6 +50,10 @@ class SurveyViewController: UITableViewController, ORKTaskViewControllerDelegate
         let tvc = ORKTaskViewController(task: theTask, taskRunUUID: nil)
         tvc.delegate = self
         presentViewController(tvc, animated: true, completion: nil)
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 65;
     }
 
     //move this somewhere else, maybe the survey itself, or an survey extensions?
@@ -77,5 +80,14 @@ class SurveyViewController: UITableViewController, ORKTaskViewControllerDelegate
         
         taskViewController.dismissViewControllerAnimated(true, completion: nil)
     }
+}
+
+class SurveyTaskCell : UITableViewCell {
+    
+    @IBOutlet weak var itemTitle: UILabel!
+    @IBOutlet weak var itemDetail: UILabel!
+    @IBOutlet weak var itemSymbol: UILabel!
+    @IBOutlet weak var itemStatus: UILabel!
+    
 }
 
