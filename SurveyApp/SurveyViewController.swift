@@ -36,6 +36,12 @@ class SurveyViewController: UITableViewController, ORKTaskViewControllerDelegate
         let theTask = survey.groups[indexPath.row]
         cell.itemTitle!.text = "\(theTask.name)"
         
+        if let b = theTask as? QuestionBlock {
+            cell.itemSymbol!.text = ""
+        } else if let b = theTask as? VoiceBlock {
+            cell.itemSymbol!.text = ""
+        }
+        
         return cell
     }
     
