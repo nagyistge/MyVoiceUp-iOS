@@ -11,34 +11,47 @@ import SwiftyJSON
 import ResearchKit
 
 
-enum BlockType : Int {
-    case Questions = 0
-    case Audio = 1
-}
-
 class SurveyBlock {
     var name: String
-    var type: BlockType
     
-    init(name: String, type: BlockType, questions: [Question]) {
+    init(name: String) {
         self.name = name
-        self.type = type
-        self.questions = questions
     }
+    
+    func asRKTask() -> ORKTask {
+        fatalError("abstract base method")
+    }
+}
+
+class QuestionBlock : SurveyBlock {
     
     var questions = [Question]()
     
-    func asRKTask() -> ORKTask {
-        switch(type) {
-        case .Audio:
-            return ORKOrderedTask.audioTaskWithIdentifier(name, intendedUseDescription: questions[0].question_text, speechInstruction: questions[0].question_text, shortSpeechInstruction: questions[0].question_text, duration: 20, recordingSettings: nil, options: nil)
-            
-        case .Questions:
-            return ORKOrderedTask(identifier: name, steps: questions.map{ $0.asStep() })
-            
-        }
+    init(name: String, questions: [Question]) {
+        super.init(name: name)
+        self.questions = questions
+    }
+    
+    
+    override func asRKTask() -> ORKTask {
+        return ORKOrderedTask(identifier: name, steps: questions.map{ $0.asStep() })
     }
 }
+
+class VoiceBlock : SurveyBlock {
+    
+    var question_text: String
+
+    init(name: String, qtext: String) {
+        self.question_text = qtext
+        super.init(name: name)
+    }
+    
+    override func asRKTask() -> ORKTask {
+        return ORKOrderedTask.audioTaskWithIdentifier(name, intendedUseDescription: question_text, speechInstruction: question_text, shortSpeechInstruction: question_text, duration: 20, recordingSettings: nil, options: nil)
+    }
+}
+
 
 class Survey {
     
@@ -75,8 +88,8 @@ class Survey {
             let audioQs = questions.filter{ $0 is QAudioRecording }.map{ $0 as! QAudioRecording }
             let surveyQs = questions.filter{ !($0 is QAudioRecording) }
             
-            var grps = audioQs.map{ SurveyBlock(name: $0.identifier, type: .Audio, questions: [$0]) }
-            grps += [SurveyBlock(name: "Questions", type: .Questions, questions: surveyQs)]
+            var grps = audioQs.map{ VoiceBlock(name: $0.identifier, qtext: $0.question_text) as SurveyBlock }
+            grps += [QuestionBlock(name: "Questions", questions: surveyQs) as SurveyBlock ]
          
             return grps
         }
