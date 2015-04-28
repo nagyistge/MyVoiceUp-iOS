@@ -41,6 +41,10 @@ class Response {
     }
     
     func answerForQuestion(question: Question) -> Answer? {
-        return answers.filter{ $0.question_id == question.identifier }.first
+        return answerForQuestion(question.identifier)
+    }
+
+    func answerForQuestion(question_id: String) -> Answer? {
+        return answers.filter{ $0.question_id == question_id }.first
     }
 }
