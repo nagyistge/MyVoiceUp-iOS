@@ -38,8 +38,27 @@ class SurveyViewController: UITableViewController, ORKTaskViewControllerDelegate
         
         if let b = theTask as? QuestionBlock {
             cell.itemSymbol!.text = ""
+
+            let ac = b.questions.filter({ self.response.answerForQuestion($0) != nil }).count
+            print(ac)
+            if ac == b.questions.count {
+                cell.itemStatus!.text = ""
+                cell.itemStatus!.textColor = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 1.0)
+            } else {
+                cell.itemStatus!.text = ""
+                cell.itemStatus!.textColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+            }
+
         } else if let b = theTask as? VoiceBlock {
             cell.itemSymbol!.text = ""
+
+            if response.answerForQuestion(b.name) != nil {
+                cell.itemStatus!.text = ""
+                cell.itemStatus!.textColor = UIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 1.0)
+            } else {
+                cell.itemStatus!.text = ""
+                cell.itemStatus!.textColor = UIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+            }
         }
         
         return cell
@@ -65,6 +84,14 @@ class SurveyViewController: UITableViewController, ORKTaskViewControllerDelegate
         //TODO: handle results
         switch (reason) {
         case .Completed:
+            let b = survey.groups.filter({$0.name == taskViewController.result.identifier}).first!
+            let answers = b.answersForResult(taskViewController.result)
+            for answer in answers {
+                response.addAnswer(answer)
+            }
+
+            self.tableView.reloadData() //should be reloadRowAtIndexPath
+
             break;
             
         case .Failed:
@@ -84,6 +111,6 @@ class SurveyTaskCell : UITableViewCell {
     @IBOutlet weak var itemDetail: UILabel!
     @IBOutlet weak var itemSymbol: UILabel!
     @IBOutlet weak var itemStatus: UILabel!
-    
+
 }
 
