@@ -40,6 +40,28 @@ class QuestionBlock : SurveyBlock {
     override func asRKTask() -> ORKTask {
         return ORKOrderedTask(identifier: name, steps: questions.map{ $0.asStep() })
     }
+
+    override func answersForResult(result: ORKTaskResult) -> [Answer] {
+
+        var answers = [Answer]()
+
+        //ugly, ugly, please fix me
+        for q in questions {
+            let r = result.resultForIdentifier(q.identifier)
+            assert(r != nil, "No answer for question found. Must not happen")
+            let cr = r as! ORKStepResult
+            let qr = cr.firstResult as? ORKQuestionResult
+            assert(qr != nil, "Invalid result type found")
+            if let sq = qr as? ORKBooleanQuestionResult {
+                answers.append(ValuedAnswer<Bool>(qid: q.identifier, value: sq.booleanAnswer!.boolValue))
+            } else if let sq = qr as? ORKScaleQuestionResult {
+                answers.append(ValuedAnswer<NSNumber>(qid: q.identifier, value: sq.scaleAnswer!))
+            } else if let sq = qr as? ORKChoiceQuestionResult {
+                answers.append(ValuedAnswer<String>(qid: q.identifier, value: sq.choiceAnswers![0] as! String))
+            }
+        }
+        return answers
+    }
 }
 
 class VoiceBlock : SurveyBlock {
