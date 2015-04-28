@@ -21,6 +21,10 @@ class SurveyBlock {
     func asRKTask() -> ORKTask {
         fatalError("abstract base method")
     }
+
+    func answersForResult(result: ORKTaskResult) -> [Answer] {
+        fatalError("abstract base method")
+    }
 }
 
 class QuestionBlock : SurveyBlock {
