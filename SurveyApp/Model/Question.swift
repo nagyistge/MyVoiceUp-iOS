@@ -132,7 +132,8 @@ class QRange: Question {
     
     override func asStep() -> ORKStep {
     
-        let frmt = ORKAnswerFormat.continuousScaleAnswerFormatWithMaxValue(self.rangeMax.doubleValue, minValue: self.rangeMin.doubleValue, defaultValue: self.rangeMax.doubleValue, maximumFractionDigits: 2)
+        let frmt = ORKAnswerFormat.continuousScaleAnswerFormatWithMaximumValue(self.rangeMax.doubleValue, minimumValue: self.rangeMin.doubleValue, defaultValue: self.rangeMax.doubleValue, maximumFractionDigits: 2, vertical: false,
+            maximumValueDescription: "Maximum value", minimumValueDescription: "Minimum value")
         let step = ORKQuestionStep(identifier: self.identifier, title: self.question_text, answer: frmt)
         
         step.text = self.question_text
